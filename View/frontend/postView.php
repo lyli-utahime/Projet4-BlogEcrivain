@@ -21,7 +21,7 @@
 <!-- End section navbar -->
 
 <!-- start section main content -->
-<div class="main-content paddsection">
+<section class="main-content paddsection">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-md-offset-2">
@@ -104,7 +104,7 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 <!-- start section main content -->
 
 <?php $content = ob_get_clean(); ?>

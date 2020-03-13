@@ -1,5 +1,6 @@
 <?php
-require('controller/frontend.php');
+require('Controller/frontend.php');
+require('Controller/backend.php');
 
 try {
     if (isset($_GET['action'])) {
@@ -9,7 +10,7 @@ try {
             if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
                 post();
             } else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('Aucun billet envoyé');
             }
         } elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
@@ -19,11 +20,29 @@ try {
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
             } else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception("Impossible d'envoyer le formulaire");
+            }
+//        } elseif ($_GET['action'] === 'pagePosts') {
+//            if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
+//                pagePosts();
+//            } else {
+//                throw new Exception('Aucun billet envoyé');
+//            }
+        } elseif ($_GET['action'] == 'createPost') {
+            if (isset($_SESSION) && $_SESSION['groups_id'] == '1') {
+                displayCreatePost();
+            } else {
+                throw new Exception('Administrateur non identifié');
+            }
+        } elseif ($_GET['action'] == 'newPost') {
+            if (!empty($_POST['title']) && !empty($_POST['extract']) && !empty($_POST['content'])) {
+                newPost($_POST['title'], $_POST['extract'], $_POST['content']);
+            } else {
+                throw new Exception('Contenu vide !');
             }
         }
     } else {
-        listPosts();
+            listPosts();
     }
 } catch(Exception $e) {
     echo 'Erreur : ' . $e->getMessage();

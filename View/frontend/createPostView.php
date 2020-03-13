@@ -29,7 +29,7 @@
     <div id="managerBlock">
         <p class="returnLink"><a href="index.php?action=admin">Retour au menu</a></p>
         <div id="col-lg-6">
-            <form action="index.php?action=submitPost" method="post" class="contactForm">
+            <form action="index.php?action=newPost" method="post" class="contactForm">
                 <div class="row">
 
                     <div id="sendmessage">Billet envoyé ! !</div>

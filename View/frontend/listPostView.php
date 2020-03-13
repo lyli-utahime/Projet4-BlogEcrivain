@@ -21,7 +21,7 @@
 <!-- End section navbar -->
 
 <!-- start section journal -->
-<div id="journal" class="text-left paddsection">
+<section id="journal" class="text-left paddsection">
 
   <div class="container">
     <div class="section-title text-center">
@@ -50,8 +50,8 @@
         </div>
     </div>
   </div>
-</div>
-<div id="posts">
+</section>
+<section id="posts">
     <div class="container">
     <!-- Liste des posts -->
         <div class="col-12">
@@ -68,11 +68,25 @@
                 <?php
                 }
                 $posts->closeCursor();
-                ?>
+
+                if ($nbPage >= 2) {
+                  ?>
+                  <div id="pageFrame">
+                  <?php
+                      for ($i = 1; $i <= $nbPage; $i++) {
+                      if ((!isset($_GET['page']) && $i == 1) || (isset($_GET['page']) && $_GET['page'] == $i)) {
+                          echo $i;
+                      } else {
+                          echo "<a href=\"index.php?page=$i\">$i</a>";
+                          }
+                      }
+                      }
+                  ?>
+                  </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 <!-- End section journal -->
 
 <?php $content = ob_get_clean(); ?>

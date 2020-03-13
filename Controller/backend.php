@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . "/../Model/PostManager.php");
 require_once(__DIR__ . "/../Model/CommentManager.php");
-require_once(__DIR__ . "/../Model/Pagination.php")
+require_once(__DIR__ . "/../Model/Pagination.php");
 
 // chargement des classes
 use Model\PostManager;
@@ -18,4 +18,8 @@ function newPost($title, $content) {
     $newPost = $postManager->createPost($title, $content);
 
     Header('Location: index.php?');
+}
+
+function displayCreatePost() {
+	require(__DIR__ . '/../View/frontkend/createPostView.php');
 }
