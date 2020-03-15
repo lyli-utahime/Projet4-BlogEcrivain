@@ -1,10 +1,12 @@
+<?php ob_start(); ?>
+
 <!-- start section navbar -->
 <nav id="main-nav">
     <div class="row">
         <div class="container">
 
             <div class="logo">
-                <a href="index.php">Billet simple pour l'alaska</a>
+                <a href="index.php?action=listPosts">Billet simple pour l'alaska</a>
             </div>
 
             <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
@@ -13,7 +15,6 @@
                 <li><a href="#header" class="smoothScroll">Accueil</a></li>
                 <li><a href="#about" class="smoothScroll">A propos</a></li>
                 <li><a href="#journal" class="smoothScroll">Journal</a></li>
-                <li><a href="index.php?action=pagePosts" class="smoothScroll">Billets</a></li>
                 <li><a href="#contact" class="smoothScroll">Contact</a></li>
                 <li><a href="index.php?action=listPosts" class="smoothScroll">Admin</a></li>
             </ul>
@@ -94,36 +95,30 @@
         <!-- Liste des derniers posts -->
         <div class="col-12">
             <div class="journal-txt">
-                <?php
-                while ($data = $posts->fetch())
-                {
-                ?>
-                <h4><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a></h4>
+                <?php foreach($posts as $post) { ?>
+                <h4><a href="index.php?action=post&amp;id=<?= $post['id'] ?>"><?= htmlspecialchars($post['title']) ?></a></h4>
                 <p class="contentPost">
-                    <em>le <?= $data['creation_date_fr'] ?></em><br>
-                    <?= nl2br(htmlspecialchars($data['extract'])) ?><br />
+                    <em>le <?= $post['creation_date_fr'] ?></em><br>
+                    <?= nl2br(htmlspecialchars($post['extract'])) ?><br />
                 </p>
-                <?php
-                }
-                $posts->closeCursor();
-
+                <?php } 
                 if ($nbPage >= 2) {
-                ?>
-                <div id="pageFrame">
-                <?php
-                    for ($i = 1; $i <= $nbPage; $i++) {
-                        if ((!isset($_GET['page']) && $i == 1) || (isset($_GET['page']) && $_GET['page'] == $i)) {
-                            echo $i;
-                        } else {
-                            echo "<a href=\"index.php?page=$i\">$i</a>";
+                    ?>
+                    <div id="pageFrame">
+                    <?php
+                        for ($i = 1; $i <= $nbPage; $i++) {
+                            if ((!isset($_GET['page']) && $i == 1) || (isset($_GET['page']) && $_GET['page'] == $i)) {
+                                echo $i;
+                            } else {
+                                echo " <a href=\"index.php?page=$i\">$i</a> ";
+                                }
                             }
                         }
-                    }
-                ?>
+                    ?>
                 </div>
             </div>
             <br><br>
-            <h2><a href="createPostView.php">Ajouter un billet</a></h2>
+            <h2><a href="View/frontend/createPostView.php">Ajouter un billet</a></h2>
         </div>
     </div>
 </section>

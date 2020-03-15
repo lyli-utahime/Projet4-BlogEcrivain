@@ -22,12 +22,6 @@ try {
             } else {
                 throw new Exception("Impossible d'envoyer le formulaire");
             }
-//        } elseif ($_GET['action'] === 'pagePosts') {
-//            if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
-//                pagePosts();
-//            } else {
-//                throw new Exception('Aucun billet envoyé');
-//            }
         } elseif ($_GET['action'] == 'createPost') {
             if (isset($_SESSION) && $_SESSION['groups_id'] == '1') {
                 displayCreatePost();

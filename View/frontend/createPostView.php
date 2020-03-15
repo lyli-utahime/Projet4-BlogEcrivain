@@ -29,7 +29,7 @@
     <div id="managerBlock">
         <p class="returnLink"><a href="index.php?action=admin">Retour au menu</a></p>
         <div id="col-lg-6">
-            <form action="index.php?action=newPost" method="post" class="contactForm">
+            <form action="action="index.php?action=newPost&amp;id=<?= $post['id'] ?>" method="post" class="contactForm">
                 <div class="row">
 
                     <div id="sendmessage">Billet envoyé ! !</div>
@@ -39,6 +39,11 @@
                         <div class="form-group contact-block1">
                         <label for="title">Titre : </label>
                         <input type="text" name="title" class="form-control" id="title" placeholder="Votre titre" size="80" /><br/>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group contact-block1">
+                        <textarea name="extract" rows="40" cols="160" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-12">

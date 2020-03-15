@@ -17,13 +17,13 @@ function listPosts()
     $pagination = new Pagination();
     $postManager = new PostManager();
 
-    $postsPerPage = 4;
+    $postsPerPage = 3;
 
     $nbPosts = $pagination->getPostsPagination();
     $nbPage = $pagination->getPostsPages($nbPosts, $postsPerPage);
 
     if (!isset($_GET['page'])) {
-        $cPage = 0;
+        $cPage = 1;
     } else {
     if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
     $cPage = (intval($_GET['page']) - 1) * $postsPerPage;
@@ -46,29 +46,6 @@ function post()
 
     require(__DIR__ . '/../View/frontend/postView.php');
 }
-
-// pour afficher la liste complète des posts
-//function pagePosts()
-//{
-//    $postManager = new PostManager();
- //   $pagination = new Pagination();
-
-//    $postsPerPage = 4;
-//    $nbPosts = $pagination->getPostsPagination();
-//    $nbPage = $pagination->getPostsPages($nbPosts, $postsPerPage);
-
-//    if (!isset($_GET['page'])) {
-//        $cPage = 0;
-//    } else {
-//        if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
-//            $cPage = (intval($_GET['page']) - 1) * $postsPerPage;
-//        }
-//    }
-
-//    $posts = $postManager->allPosts($cPage, $postsPerPage);
-
-//    require(__DIR__ . '/../View/frontend/listPostView.php');
-//}
 
 // pour ajouter un commentaire
 function addComment($postId, $author, $comment)

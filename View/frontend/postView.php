@@ -4,15 +4,15 @@
       <div class="container">
 
         <div class="logo">
-            <a href="/BlogEcrivain - Copie/index.php">Billet simple pour l'alaska</a>
+            <a href="index.php?action=listPosts">Billet simple pour l'alaska</a>
         </div>
 
         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
 
         <ul class="nav-menu list-unstyled">
             <li><a href="/BlogEcrivain - Copie/index.php" class="smoothScroll">Accueil</a></li>
-            <li><a href="/BlogEcrivain - Copie/View/frontend/listPostView.php" class="smoothScroll">Billets</a></li>
             <li><a href="contact.php" class="smoothScroll">Contact</a></li>
+            <li><a href="index.php?action=listPosts" class="smoothScroll">Admin</a></li>
         </ul>
 
       </div>
