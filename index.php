@@ -1,6 +1,6 @@
 <?php
 require('Controller/frontend.php');
-require('Controller/backend.php');
+require('Controller/postController.php');
 
 try {
     if (isset($_GET['action'])) {
