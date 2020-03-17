@@ -11,8 +11,7 @@
 
         <ul class="nav-menu list-unstyled">
             <li><a href="/BlogEcrivain - Copie/index.php" class="smoothScroll">Accueil</a></li>
-            <li><a href="/BlogEcrivain - Copie/View/frontend/listPostView.php" class="smoothScroll">Billets</a></li>
-            <li><a href="contact.php" class="smoothScroll">Contact</a></li>
+            <li><a href="index.php?action=listPosts" class="smoothScroll">Se connecter</a></li>
         </ul>
 
       </div>

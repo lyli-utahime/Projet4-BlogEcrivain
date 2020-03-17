@@ -11,8 +11,7 @@
 
         <ul class="nav-menu list-unstyled">
             <li><a href="/BlogEcrivain - Copie/index.php" class="smoothScroll">Accueil</a></li>
-            <li><a href="contact.php" class="smoothScroll">Contact</a></li>
-            <li><a href="index.php?action=listPosts" class="smoothScroll">Admin</a></li>
+            <li><a href="index.php?action=listPosts" class="smoothScroll">Se connecter</a></li>
         </ul>
 
       </div>
@@ -61,7 +60,7 @@
                                                 <div class="entry-comments-body">
                                                     <span class="entry-comments-author"><?= htmlspecialchars($comment['author']) ?></span>
                                                     <span><a href="#"><?= $comment['comment_date_fr'] ?></a></span>
-                                                    <p class="mb-10"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+                                                    <p class="contentPost"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                                                 </div>
                                                   <!--  <img src="../public/images/avatar.jpg" class="entry-comments-avatar" alt="">-->
                                             </div>
@@ -91,7 +90,7 @@
                                         </div>
                                     </div>
                                         <div class="col-lg-12">
-                                            <input type="submit" class="btn btn-defeault btn-send" value="Send message">
+                                            <input type="submit" class="btn" value="Envoyer le commentaire">
                                         </div>
                                     </div>
                                 </form>

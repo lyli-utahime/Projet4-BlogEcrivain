@@ -16,7 +16,7 @@
                 <li><a href="#about" class="smoothScroll">A propos</a></li>
                 <li><a href="#journal" class="smoothScroll">Journal</a></li>
                 <li><a href="#contact" class="smoothScroll">Contact</a></li>
-                <li><a href="index.php?action=listPosts" class="smoothScroll">Admin</a></li>
+                <li><a href="index.php?action=listPosts" class="smoothScroll">Se connecter</a></li>
             </ul>
 
         </div>
@@ -97,8 +97,8 @@
             <div class="journal-txt">
                 <?php foreach($posts as $post) { ?>
                 <h4><a href="index.php?action=post&amp;id=<?= $post['id'] ?>"><?= htmlspecialchars($post['title']) ?></a></h4>
+                <em style="color:#000000;">le <?= $post['creation_date_fr'] ?></em><br>
                 <p class="contentPost">
-                    <em>le <?= $post['creation_date_fr'] ?></em><br>
                     <?= nl2br(htmlspecialchars($post['extract'])) ?><br />
                 </p>
                 <?php } 

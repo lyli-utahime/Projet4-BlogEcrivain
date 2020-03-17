@@ -8,12 +8,16 @@ require_once("Manager.php");
 
 class PostManager extends Manager
 {
-    // page index : les  3 derniers billets
-    function getPosts() {
-        $bdd = $this->dbConnect($cPage, $postsPerPage);
-        $req = $bdd->query('SELECT id, title, extract, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT $cPage, $postsPerPage');
+    // page index
+    function getPosts($cPage, $postsPerPage) {
+        $cPage = 1;
 
-        return $req;
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare("SELECT id, title, extract, DATE_FORMAT(creation_date, '%d/%m/%Y %H:%i:%s') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT $cPage, $postsPerPage");
+        $req->execute(array());
+        $allPosts = $req->fetchAll();
+
+        return $allPosts;
     }
 
     // page post : afficher un seul billet
@@ -43,13 +47,4 @@ class PostManager extends Manager
 
         return $newPost;
     }
-
-    // page liste des billets
-//    function allPosts($cPage, $postsPerPage)
-//    {
- //       $db = $this->dbConnect($cPage, $postsPerPage);
-//        $req = $db->query('SELECT id, title, extract, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT $cPage, $postsPerPage');
-
-//        return $req;
-//    }
 }
