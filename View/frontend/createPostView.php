@@ -4,13 +4,13 @@
       <div class="container">
 
         <div class="logo">
-            <a href="/BlogEcrivain - Copie/index.php">Billet simple pour l'alaska</a>
+            <a href="index.php?action=listPosts">Billet simple pour l'alaska</a>
         </div>
 
         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
 
         <ul class="nav-menu list-unstyled">
-            <li><a href="/BlogEcrivain - Copie/index.php" class="smoothScroll">Accueil</a></li>
+            <li><a href="index.php?action=listPosts">Accueil</a></li>
             <li><a href="index.php?action=listPosts" class="smoothScroll">Se connecter</a></li>
         </ul>
 

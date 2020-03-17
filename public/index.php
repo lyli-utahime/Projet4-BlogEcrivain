@@ -1,6 +1,6 @@
 <?php
-require('Controller/frontend.php');
-require('Controller/backend.php');
+require(__DIR__ . '/../Controller/Frontend.php');
+require(__DIR__ . '/../Controller/postController.php');
 
 try {
     if (isset($_GET['action'])) {
@@ -12,7 +12,7 @@ try {
             } else {
                 throw new Exception('Aucun billet envoyé');
             }
-        } elseif ($_GET['action'] == 'addComment') {
+        } elseif ($_GET['action'] === 'addComment') {
             if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
@@ -22,13 +22,14 @@ try {
             } else {
                 throw new Exception("Impossible d'envoyer le formulaire");
             }
-        } elseif ($_GET['action'] == 'createPost') {
-            if (isset($_SESSION) && $_SESSION['groups_id'] == '1') {
-                displayCreatePost();
+        } elseif ($_GET['action'] === 'createPost') {
+            if (isset($_SESSION) && 1 === $_SESSION['groups_id']) {
+                $postController = new PostController();
+                $postController->create();
             } else {
                 throw new Exception('Administrateur non identifié');
             }
-        } elseif ($_GET['action'] == 'newPost') {
+        } elseif ($_GET['action'] === 'newPost') {
             if (!empty($_POST['title']) && !empty($_POST['extract']) && !empty($_POST['content'])) {
                 newPost($_POST['title'], $_POST['extract'], $_POST['content']);
             } else {

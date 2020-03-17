@@ -44,7 +44,7 @@
             <div class="col-lg-4 ">
                 <div class="div-img-bg">
                     <div class="about-img">
-                        <img src="public/images/me.jpg" class="img-responsive" alt="me">
+                        <img src="../public/images/me.jpg" class="img-responsive" alt="me">
                     </div>
                 </div>
             </div>
@@ -73,17 +73,17 @@
                 <!-- Images avant liste des derniers posts -->
                 <div class="col-lg-4 col-md-6">
                     <div class="journal-info">
-                    <a href="blog-single.html"><img src="public/images/blog-post-1.jpg" class="img-responsive" alt="img"></a>
+                    <a href="blog-single.html"><img src="../public/images/blog-post-1.jpg" class="img-responsive" alt="img"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="journal-info">
-                    <a href="blog-single.html"><img src="public/images/blog-post-2.jpg" class="img-responsive" alt="img"></a>
+                    <a href="blog-single.html"><img src="../public/images/blog-post-2.jpg" class="img-responsive" alt="img"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="journal-info">
-                    <a href="blog-single.html"><img src="public/images/blog-post-3.jpg" class="img-responsive" alt="img"></a>
+                    <a href="blog-single.html"><img src="../public/images/blog-post-3.jpg" class="img-responsive" alt="img"></a>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@
                 </div>
             </div>
             <br><br>
-            <h2><a href="View/frontend/createPostView.php">Ajouter un billet</a></h2>
+            <h2><a href=../View/frontend/createPostView.php">Ajouter un billet</a></h2>
         </div>
     </div>
 </section>

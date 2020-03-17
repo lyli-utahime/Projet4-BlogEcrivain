@@ -14,22 +14,22 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
-    <link href="public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
-    <link href="public/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="public/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="public/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <link href="public/lib/hover/hover.min.css" rel="stylesheet">
+    <link href="../public/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="../public/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../public/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="../public/lib/hover/hover.min.css" rel="stylesheet">
 
     <!-- Main Stylesheet File -->
-    <link href="public/css/style.css" rel="stylesheet">
+    <link href="../public/css/style.css" rel="stylesheet">
 
     <!-- Responsive css -->
-    <link href="public/css/responsive.css" rel="stylesheet">
+    <link href="../public/css/responsive.css" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="../public/images/favicon.png">
 
     <!-- =======================================================
         Theme Name: Folio
@@ -65,19 +65,19 @@
     <!-- End section footer -->
 
     <!-- JavaScript Libraries -->
-    <script src="public/lib/jquery/jquery.min.js"></script>
-    <script src="public/lib/jquery/jquery-migrate.min.js"></script>
-    <script src="public/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="public/lib/typed/typed.js"></script>
-    <script src="public/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="public/lib/magnific-popup/magnific-popup.min.js"></script>
-    <script src="public/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="../public/lib/jquery/jquery.min.js"></script>
+    <script src="../public/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="../public/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../public/lib/typed/typed.js"></script>
+    <script src="../public/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../public/lib/magnific-popup/magnific-popup.min.js"></script>
+    <script src="../public/lib/isotope/isotope.pkgd.min.js"></script>
 
     <!-- Contact Form JavaScript File -->
-    <script src="public/contactform/contactform.js"></script>
+    <script src="../public/contactform/contactform.js"></script>
 
     <!-- Template Main Javascript File -->
-    <script src="public/js/main.js"></script>
+    <script src="../public/js/main.js"></script>
 
 </body>
 

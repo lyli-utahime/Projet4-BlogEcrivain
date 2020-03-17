@@ -10,7 +10,7 @@
         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
 
         <ul class="nav-menu list-unstyled">
-            <li><a href="/BlogEcrivain - Copie/index.php" class="smoothScroll">Accueil</a></li>
+            <li><a href="index.php?action=listPosts" class="smoothScroll">Accueil</a></li>
             <li><a href="index.php?action=listPosts" class="smoothScroll">Se connecter</a></li>
         </ul>
 
@@ -28,7 +28,7 @@
                     <div class="container-main single-main">
                         <div class="col-md-12">
                             <div class="block-main mb-30">
-                                <img src="public/images/blog-post-big.jpg" class="img-responsive" alt="reviews2">
+                                <img src="../public/images/blog-post-big.jpg" class="img-responsive" alt="reviews2">
 
                                 <!-- Affichage du Billet -->
                                 <div class="content-main single-post padDiv">
