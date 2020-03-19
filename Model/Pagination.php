@@ -2,8 +2,6 @@
 
 namespace Model;
 
-use Model\Manager;
-
 require_once("Manager.php");
 
 class Pagination extends Manager

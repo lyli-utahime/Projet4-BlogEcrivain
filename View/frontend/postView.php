@@ -11,7 +11,7 @@
 
         <ul class="nav-menu list-unstyled">
             <li><a href="index.php?action=listPosts" class="smoothScroll">Accueil</a></li>
-            <li><a href="index.php?action=listPosts" class="smoothScroll">Se connecter</a></li>
+            <li><a href="index.php?action=displayLogIn" class="smoothScroll">Se connecter</a></li>
         </ul>
 
       </div>
@@ -35,7 +35,7 @@
                                     <div class="post-meta">
                                         <?php ob_start(); ?>
                                         
-                                        <h3><?= htmlspecialchars($post['title']) ?></h3>
+                                        <h2><?= htmlspecialchars($post['title']) ?></h2>
                                         <ul class="list-unstyled mb-0">
 
                                         <li class="date">date : le <?= $post['creation_date_fr'] ?></li>
@@ -50,15 +50,15 @@
 
                                 <!-- Affichage des commentaires -->
                                 <div class="entry-comments">
-                                    <h6 class="mb-30">Commentaires</h6>
+                                    <h3 class="mb-30">Commentaires</h6>
                                     <ul class="entry-comments-list list-unstyled">
-                                    	<?php	
+                                        <?php
                                         while ($comment = $comments->fetch())
-                                			{ ?>
+                                        { ?>
                                         <li>
                                             <div class="entry-comments-item">
                                                 <div class="entry-comments-body">
-                                                    <span class="entry-comments-author"><?= htmlspecialchars($comment['author']) ?></span>
+                                                    <h4 class="entry-comments-author"><?= htmlspecialchars($comment['author']) ?></h4>
                                                     <span><a href="#"><?= $comment['comment_date_fr'] ?></a></span>
                                                     <p class="contentPost"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                                                 </div>

@@ -2,12 +2,9 @@
 
 namespace Model;
 
-use Model\Manager;
-
 require_once("Manager.php");
 
-class PostManager extends Manager
-{
+class PostManager extends Manager {
     // page index
     function getPosts($cPage, $postsPerPage) {
         $cPage = 1;

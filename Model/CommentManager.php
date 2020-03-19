@@ -4,11 +4,7 @@ namespace Model;
 
 require_once("Manager.php");
 
-use Model\Manager;
-
-class CommentManager extends Manager
-{
-    
+class CommentManager extends Manager {
 // page post : récupère les commentaires sous un billet
     public function getComments($postId) {
         $bdd = $this->dbConnect();

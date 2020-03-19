@@ -41,6 +41,10 @@ h2 {
     font-weight: 600;
 }
 
+h3 {
+    font-weight: 600;
+    font-size: 18px !important;
+}
 h4 {
     font-size: 14px;
     font-weight: 600;
@@ -517,4 +521,21 @@ nav ul li a {
 
 .credits {
     font-size: 13px;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*  Admin
+/*-----------------------------------------------------------------------------------*/
+
+#adminFrame {
+    width: 100%;
+    height: auto;
+    background: #f7f7f7;
+    padding-top: 190px;
+    padding-bottom: 30px;
+    border: 20px solid #b8a07c;
+}
+
+#postManage {
+    background-color: #ffffff;
 }
