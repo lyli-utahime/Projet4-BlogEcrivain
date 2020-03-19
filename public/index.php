@@ -1,6 +1,11 @@
 <?php
+<<<<<<< HEAD:public/index.php
 require(__DIR__ . '/../Controller/Frontend.php');
 require(__DIR__ . '/../Controller/postController.php');
+=======
+require('Controller/frontend.php');
+require('Controller/postController.php');
+>>>>>>> 98f2ca1c70a54f07bf40dd2c37956a7ad89db2ca:index.php
 
 try {
     if (isset($_GET['action'])) {
