@@ -5,15 +5,15 @@ namespace Controller;
 require_once(__DIR__ . "/../Model/PostManager.php");
 require_once(__DIR__ . "/../Model/CommentManager.php");
 require_once(__DIR__ . "/../Model/Pagination.php");
-require_once(__DIR__ . "/../Model/ReportManager.php");
-require_once(__DIR__ . "/../Model/MemberManager.php");
+//require_once(__DIR__ . "/../Model/ReportManager.php");
+//require_once(__DIR__ . "/../Model/MemberManager.php");
 
 // chargement des classes
 use Model\PostManager;
 use Model\CommentManager;
 use Model\Pagination;
-use Model\ReportManager;
-use Model\MemberManager;
+//use Model\ReportManager;
+//use Model\MemberManager;
 
 class Frontend {
     // pour les derniers posts sur la page d'accueil
