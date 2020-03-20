@@ -41,7 +41,7 @@
 
                     ?>
                     <div class="form">
-                        <form action="index.php?action=loginsubmit" method="post">
+                        <form action="index.php?action=loginAdmin" method="post">
                         <div class="col-lg-6">
                             <div class="form-group contact-block1">
                                 <label for="pseudo">Pseudo</label><br/>
@@ -58,7 +58,6 @@
                                     <input type="submit" value="Se connecter" />
                         </div>
                         </form>
-                        <h6>Pas encore inscrit ? <a href="index.php?action=subscribe">S'enregistrer ici.</a>
                     </div>
                 </div>
             </div>

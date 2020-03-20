@@ -21,7 +21,8 @@ ob_start(); ?>
                 <li><a href="#about" class="smoothScroll">A propos</a></li>
                 <li><a href="#journal" class="smoothScroll">Journal</a></li>
                 <li><a href="#contact" class="smoothScroll">Contact</a></li>
-                <li><a href="index.php?action=displayLogIn" class="smoothScroll">Se connecter</a></li>
+                <li><a href="index.php?action=displayLoginAdmin" class="smoothScroll">Administration</a></li>
+                <li><a href="index.php?action=displayLogin" class="smoothScroll">Se connecter</a></li>
             </ul>
 
         </div>

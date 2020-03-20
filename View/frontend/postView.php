@@ -11,7 +11,8 @@
 
         <ul class="nav-menu list-unstyled">
             <li><a href="index.php?action=listPosts" class="smoothScroll">Accueil</a></li>
-            <li><a href="index.php?action=displayLogIn" class="smoothScroll">Se connecter</a></li>
+            <li><a href="index.php?action=displayLoginAdmin" class="smoothScroll">Administration</a></li>
+            <li><a href="index.php?action=displayLogin" class="smoothScroll">Se connecter</a></li>
         </ul>
 
       </div>

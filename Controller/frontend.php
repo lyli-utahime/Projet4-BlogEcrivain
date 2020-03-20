@@ -5,15 +5,15 @@ namespace Controller;
 require_once(__DIR__ . "/../Model/PostManager.php");
 require_once(__DIR__ . "/../Model/CommentManager.php");
 require_once(__DIR__ . "/../Model/Pagination.php");
-//require_once(__DIR__ . "/../Model/ReportManager.php");
-//require_once(__DIR__ . "/../Model/MemberManager.php");
+require_once(__DIR__ . "/../Model/ReportManager.php");
+require_once(__DIR__ . "/../Model/MemberManager.php");
 
 // chargement des classes
 use Model\PostManager;
 use Model\CommentManager;
 use Model\Pagination;
-//use Model\ReportManager;
-//use Model\MemberManager;
+use Model\ReportManager;
+use Model\MemberManager;
 
 class Frontend {
     // pour les derniers posts sur la page d'accueil
@@ -86,7 +86,7 @@ class Frontend {
         $isPasswordCorrect = password_verify($_POST['pass'], $member['pass']);
 
         if (!$member) {
-            header('Location: index.php?action=login&account-status=unsuccess-login');
+            header('Location: index.php?action=login&account-status=success-login');
         }
         else {
             if ($isPasswordCorrect) {
@@ -99,6 +99,44 @@ class Frontend {
                 header('Location: index.php?action=login&account-status=unsuccess-login');
             }
         }
+    }
+
+    //affichage du formulaire d'inscription
+    function displaySubscribe() {
+        require(__DIR__ . '/../view/frontend/subscribe.php');
+    }
+
+    // ajouter un membre
+    function addMember($pseudo, $pass, $mail) {
+        $memberManager = new MemberManager();
+
+        $reCaptcha = $memberManager->getReCaptcha($_POST['g-recaptcha-response']);
+
+        if ($reCaptcha->success == true) {
+            $usernameValidity = $memberManager->checkPseudo($pseudo);
+            $mailValidity = $memberManager->checkMail($mail);
+
+            if ($usernameValidity) {
+                header('Location: index.php?action=subscribe&error=invalidUsername');	
+            }
+
+            if ($mailValidity) {
+                header('Location: index.php?action=subscribe&error=invalidMail');
+            }
+
+            if (!$usernameValidity && !$mailValidity) {
+                // Hachage du mot de passe
+                $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+                
+                $newMember = $memberManager->createMember($pseudo, $pass, $mail);
+                
+                // redirige vers page d'accueil avec le nouveau paramètre
+                header('Location: index.php?account-status=account-successfully-created');
+            }
+        } else {
+            header('Location: index.php?action=subscribe&error=google-recaptcha');
+        }
+
     }
 
     // deconnexion

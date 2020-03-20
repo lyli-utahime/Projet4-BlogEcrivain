@@ -11,6 +11,7 @@
 
         <ul class="nav-menu list-unstyled">
             <li><a href="index.php?action=listPosts" class="smoothScroll">Accueil</a></li>
+            <li><a href="index.php?action=displayLoginAdmin" class="smoothScroll">Administration</a></li>
             <li><a href="index.php?action=displayLogin" class="smoothScroll">Se connecter</a></li>
         </ul>
 
@@ -64,9 +65,7 @@ $title = "Panneau d'administration"; ?>
                                 </p>
                                 <button class="btn"><a href="index.php?action=displayUpdate&amp;id=<?= $post['id']; ?>">Modifier l'article</a></button>
                                     <div id="postModal<?= $countPost ?>">
-                                            <p>Voulez-vous vraiment supprimer l'article <em><?= $post['title']; ?></em> ?</p>
-                                            <a class="confirmDelete" href="index.php?action=deletePost&amp;id=<?= $post['id']; ?>">Oui</a>
-                                            <span id="closePostModal<?= $countPost++ ?>">Non</span>
+                                    <a href="index.php?action=removePost&amp;id=<?= $post['id']; ?>">Supprimer l'article</a> : <em><?= $post['title']; ?></em>
                                     </div>
                                 <a href="index.php?action=updatePost&amp;id=<?= $post['id']; ?>"></a>
                                 <em style="color:#000000;">le <?= $post['creation_date_fr'] ?></em>
