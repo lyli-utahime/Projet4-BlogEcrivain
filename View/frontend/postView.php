@@ -90,7 +90,7 @@
                                         </div>
                                     </div>
                                         <div class="col-lg-12">
-                                            <input type="submit" class="btn" value="Envoyer le commentaire">
+                                            <input type="submit" class="btn" value="ENVOYER LE COMMENTAIRE">
                                         </div>
                                     </div>
                                 </form>

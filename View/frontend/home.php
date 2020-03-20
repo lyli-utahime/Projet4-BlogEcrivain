@@ -110,7 +110,7 @@ ob_start(); ?>
                 <?php } 
                 if ($nbPage >= 2) {
                     ?>
-                    <div id="pageFrame">
+                    <div class="pagination">
                     <?php
                         for ($i = 1; $i <= $nbPage; $i++) {
                             if ((!isset($_GET['page']) && $i == 1) || (isset($_GET['page']) && $_GET['page'] == $i)) {

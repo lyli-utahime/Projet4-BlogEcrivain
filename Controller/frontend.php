@@ -74,6 +74,10 @@ class Frontend {
     }
 
     // function pour se connecter
+    function displayLogin() {
+        require(__DIR__ . '/../view/frontend/login.php');
+    }
+
     function loginSubmit($pseudo, $pass) {
         $memberManager = new MemberManager();
 
@@ -87,7 +91,7 @@ class Frontend {
         else {
             if ($isPasswordCorrect) {
                 $_SESSION['id'] = $member['id'];
-                $_SESSION['pseudo'] = ucfirst(strtolower($pseudo));
+                $_SESSION['username'] = ucfirst(strtolower($pseudo));
                 $_SESSION['groups_id'] = $member['groups_id'];
                 header('Location: index.php');
             }
@@ -100,7 +104,7 @@ class Frontend {
     // deconnexion
     function logout() {
         $_SESSION = array();
-        setcookie(session_name(), '', time() - 42000);
+        setcookie(session_name(), '', time() - 300); //temps en minutes
         session_destroy();
 
         header('Location: index.php?logout=success');

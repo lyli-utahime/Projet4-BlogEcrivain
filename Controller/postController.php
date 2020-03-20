@@ -18,17 +18,12 @@ use Model\Pagination;
 //use Model\MemberManager;
 
 class PostController {
-    // affichage du formulaire pour s'enregistrer
-    function displayLogIn() {
-        require(__DIR__ . '/../view/frontend/login.php');
-    }
-
     // pour s'enregistrer
-    function logInAdmin() {
+    function loginAdmin() {
         if (isset($_POST['pass']) AND $_POST['pass'] == "test") {
             header('Location: index.php?action=displayAdmin');
         } else {
-            header('Location: index.php?action=logInAdmin&account-status=unsuccess-login');
+            header('Location: index.php?action=admin-login-view&account-status=unsuccess-login');
         }
     }
 
@@ -60,12 +55,12 @@ class PostController {
         require(__DIR__ . '/../View/backend/createPostView.php');
     }
     // pour ajouter un billet
-    function newPost($title, $content) {
+    function newPost($title, $extract, $content) {
         $postManager = new PostManager();
 
-        $newPost = $postManager->createPost($title, $content);
+        $newPost = $postManager->createPost($title, $extract, $content);
 
-        Header('Location: index.php?action=admin&newPost=success');
+        Header('Location: index.php?action=displayAdmin&newPost=success');
     }
 
     // pour modifier un billet
@@ -76,12 +71,12 @@ class PostController {
         require('view/backend/updatePostView.php');
     }
     
-    function submitUpdate($title, $content, $postId) {
+    function submitUpdate($title, $extract, $content, $postId) {
         $postManager = new PostManager();
         
-        $updated = $postManager->updatePost($title, $content, $postId);
+        $updated = $postManager->updatePost($title, $extract, $content, $postId);
     
-        Header('Location: index.php?action=admin&update-status=success');
+        Header('Location: index.php?action=displayUpdate&update-status=success');
     }
 
     // pour supprimer un billet
@@ -90,7 +85,7 @@ class PostController {
     
         $deletedPost = $postManager->deletePost($postId);
     
-        Header('Location: index.php?action=admin&remove-post=success');
+        Header('Location: index.php?action=displayAdmin&remove-post=success');
     }
     
     // pour supprimer un commentaire
@@ -99,6 +94,6 @@ class PostController {
     
         $deletedComment = $commentManager->deleteComment($commentId);
     
-        Header('Location: index.php?action=admin&remove-comment=success');
+        Header('Location: index.php?action=displayAdmin&remove-comment=success');
     }
 }

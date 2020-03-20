@@ -44,4 +44,13 @@ class PostManager extends Manager {
 
         return $newPost;
     }
+
+    // supprimer un billet
+    public function deletePost($postId) {
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('DELETE FROM posts WHERE id = ?');
+        $deletedPost = $req->execute(array($postId));
+
+        return $deletedPost;
+    }
 }
