@@ -103,7 +103,7 @@ class Frontend {
 
     //affichage du formulaire d'inscription
     function displaySubscribe() {
-        require(__DIR__ . '/../View/frontend/subscribe.php');
+        require(__DIR__ . '/../view/frontend/subscribe.php');
     }
 
     // ajouter un membre

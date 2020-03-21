@@ -54,7 +54,7 @@ class MemberManager extends Manager
     public function createMember($pseudo, $pass, $mail)
     {
         $bdd = $this->dbConnect();
-        $newMember = $bdd->prepare('INSERT INTO useers(groups_id, pseudo, pass, mail, subscribe_date) VALUES (2, ?, ?, ?, CURDATE())');
+        $newMember = $bdd->prepare('INSERT INTO users(groups_id, pseudo, pass, mail, subscribe_date) VALUES (2, ?, ?, ?, CURDATE())');
         $newMember->execute(array($pseudo, $pass, $mail));
 
         return $newMember;
@@ -70,7 +70,7 @@ class MemberManager extends Manager
 
     public function deleteMember($memberId) {
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('DELETE FROM useers WHERE id = ?');
+        $req = $bdd->prepare('DELETE FROM users WHERE id = ?');
         $deletedMember = $req->execute(array($memberId));
 
         return $deletedMember;

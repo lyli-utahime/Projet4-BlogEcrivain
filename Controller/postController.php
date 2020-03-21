@@ -20,7 +20,7 @@ use Model\MemberManager;
 class PostController {
     // pour s'enregistrer
     function displayLoginAdmin() {
-        require(__DIR__ . '/../View/frontend/login.php');
+        require(__DIR__ . '/../View/frontend/loginAdmin.php');
     }
 
     function loginAdmin() {
@@ -53,7 +53,7 @@ class PostController {
         
         $posts = $postManager->getPosts($cPage, $postsPerPage);
 
-        require(__DIR__ . '/../View/backend/adminView.php');
+        require(__DIR__ . '/../view/backend/adminView.php');
     }
 
     // affichage du formulaire pour créer un billet
@@ -74,7 +74,7 @@ class PostController {
         $postManager = new PostManager();
     
         $post = $postManager->getPost($_GET['id']);
-        require('view/backend/updatePostView.php');
+        require(__DIR__ . '/../View//backend/updatePostView.php');
     }
     
     function submitUpdate($title, $extract, $content, $postId) {
