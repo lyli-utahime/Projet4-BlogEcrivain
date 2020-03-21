@@ -75,7 +75,7 @@ class Frontend {
 
     // function pour se connecter
     function displayLogin() {
-        require(__DIR__ . '/../view/frontend/login.php');
+        require(__DIR__ . '/../View/frontend/login.php');
     }
 
     function loginSubmit($pseudo, $pass) {
@@ -103,7 +103,7 @@ class Frontend {
 
     //affichage du formulaire d'inscription
     function displaySubscribe() {
-        require(__DIR__ . '/../view/frontend/subscribe.php');
+        require(__DIR__ . '/../View/frontend/subscribe.php');
     }
 
     // ajouter un membre

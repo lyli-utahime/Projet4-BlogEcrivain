@@ -182,24 +182,37 @@ p {
     margin-bottom: 30px;
 }
 
-.pagination {
+.cPage a {
+    text-decoration: none;
+    background-color: #fff;
+}
+
+.dialing a:hover:not(.active) {
+    background-color: #fff;
+}
+
+.dialing a.active {
+    background-color: #fff;
+}
+
+.dialing {
     display: inline-block;
 }
 
-.pagination a {
+.dialing a {
     color: black;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
-    transition: background-color .3s;
+    transition: background-color 0.3s;
 }
 
-.pagination a.active {
-    background-color #333;
-    color: white;
+.dialing a.active {
+    background-color: #fff;
+    color: #000;
 }
-  
-.pagination a:hover:not(.active) {
+
+.dialing a:hover:not(.active) {
     background-color: #b8a07e;
 }
 

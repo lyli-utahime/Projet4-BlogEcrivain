@@ -5,6 +5,17 @@ $title = "Billet simple pour l'Alaska";
 
 ob_start(); ?>
 
+<?php
+if (isset($_GET['account-status']) && $_GET['account-status'] == 'account-successfully-created') {
+    echo '<p id="success">Votre compte a bien été créé. <a href="index.php?action=login">Se connecter</a></p>';
+}
+
+if (isset($_GET['logout']) && $_GET['logout'] == 'success') {
+    echo '<p id="success">Vous êtes bien deconnecté.</p>';
+}
+?>
+
+
 <!-- start section navbar -->
 <nav id="main-nav">
     <div class="row">
@@ -26,7 +37,7 @@ ob_start(); ?>
             </ul>
 
         </div>
-        </div>
+    </div>
 </nav>
 <!-- End section navbar -->
 
@@ -68,29 +79,28 @@ ob_start(); ?>
 
 <!-- start section journal -->
 <section id="journal" class="text-left paddsection">
-
     <div class="container">
         <div class="section-title text-center">
             <h2>journal</h2>
         </div>
-        </div>
         <div class="container">
-        <div class="journal-block">
-            <div class="row">
-                <!-- Images avant liste des derniers posts -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="journal-info">
-                    <a href="blog-single.html"><img src="../public/images/blog-post-1.jpg" class="img-responsive" alt="img"></a>
+            <div class="journal-block">
+                <div class="row">
+                    <!-- Images avant liste des derniers posts -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="journal-info">
+                        <a href="blog-single.html"><img src="../public/images/blog-post-1.jpg" class="img-responsive" alt="img"></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="journal-info">
-                    <a href="blog-single.html"><img src="../public/images/blog-post-2.jpg" class="img-responsive" alt="img"></a>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="journal-info">
+                        <a href="blog-single.html"><img src="../public/images/blog-post-2.jpg" class="img-responsive" alt="img"></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="journal-info">
-                    <a href="blog-single.html"><img src="../public/images/blog-post-3.jpg" class="img-responsive" alt="img"></a>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="journal-info">
+                        <a href="blog-single.html"><img src="../public/images/blog-post-3.jpg" class="img-responsive" alt="img"></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,13 +121,13 @@ ob_start(); ?>
                 <?php } 
                 if ($nbPage >= 2) {
                     ?>
-                    <div class="pagination">
+                <div class="dialing">
                     <?php
                         for ($i = 1; $i <= $nbPage; $i++) {
                             if ((!isset($_GET['page']) && $i == 1) || (isset($_GET['page']) && $_GET['page'] == $i)) {
-                                echo $i;
+                                echo "<a href=\'' class='cPage'>$i</a>";
                             } else {
-                                echo " <a href=\"index.php?page=$i\">$i</a> ";
+                                echo "<a href=\'index.php?page=$i\'>$i</a>";
                                 }
                             }
                         }
@@ -125,7 +135,7 @@ ob_start(); ?>
                 </div>
             </div>
             <br><br>
-            <h2><a href=../View/frontend/createPostView.php">Ajouter un billet</a></h2>
+            <h2><a href="../View/frontend/createPostView.php">Ajouter un billet</a></h2>
         </div>
     </div>
 </section>

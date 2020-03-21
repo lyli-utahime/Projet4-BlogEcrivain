@@ -20,14 +20,14 @@ use Model\MemberManager;
 class PostController {
     // pour s'enregistrer
     function displayLoginAdmin() {
-        require(__DIR__ . '/../view/frontend/loginAdmin.php');
+        require(__DIR__ . '/../View/frontend/login.php');
     }
 
     function loginAdmin() {
         if (isset($_POST['pass']) AND $_POST['pass'] == "test") {
-            header('Location: index.php?action=displayAdmin');
+            header('Location: index.php?action=admin');
         } else {
-            header('Location: index.php?action=lisPosts');
+            header('Location: index.php?action=admin-login-view&account-status=unsuccess-login');
         }
     }
 
@@ -53,7 +53,7 @@ class PostController {
         
         $posts = $postManager->getPosts($cPage, $postsPerPage);
 
-        require(__DIR__ . '/../view/backend/adminView.php');
+        require(__DIR__ . '/../View/backend/adminView.php');
     }
 
     // affichage du formulaire pour créer un billet
