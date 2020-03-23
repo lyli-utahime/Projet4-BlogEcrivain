@@ -6,14 +6,12 @@ require_once(__DIR__ . "/../Model/PostManager.php");
 require_once(__DIR__ . "/../Model/CommentManager.php");
 require_once(__DIR__ . "/../Model/Pagination.php");
 require_once(__DIR__ . "/../Model/ReportManager.php");
-require_once(__DIR__ . "/../Model/MemberManager.php");
 
 // chargement des classes
 use Model\PostManager;
 use Model\CommentManager;
 use Model\Pagination;
 use Model\ReportManager;
-use Model\MemberManager;
 
 class Frontend {
     // pour les derniers posts sur la page d'accueil
@@ -65,86 +63,11 @@ class Frontend {
     }
 
     // signaler un commentaire
-    function postReport($postId, $commentId, $memberId) {
+    function postReport($postId, $commentId) {
         $reportManager = new ReportManager();
 
-        $reported = $reportManager->postReports($commentId, $memberId);
+        $reported = $reportManager->postReports($commentId);
 
         header('Location: index.php?action=post&id=' . $postId . '&report=success#commentsFrame');
-    }
-
-    // function pour se connecter
-    function displayLogin() {
-        require(__DIR__ . '/../View/frontend/login.php');
-    }
-
-    function loginSubmit($pseudo, $pass) {
-        $memberManager = new MemberManager();
-
-        $member = $memberManager->loginMember($pseudo);
-
-        $isPasswordCorrect = password_verify($_POST['pass'], $member['pass']);
-
-        if (!$member) {
-            header('Location: index.php?action=login&account-status=success-login');
-        }
-        else {
-            if ($isPasswordCorrect) {
-                $_SESSION['id'] = $member['id'];
-                $_SESSION['username'] = ucfirst(strtolower($pseudo));
-                $_SESSION['groups_id'] = $member['groups_id'];
-                header('Location: index.php');
-            }
-            else {
-                header('Location: index.php?action=login&account-status=unsuccess-login');
-            }
-        }
-    }
-
-    //affichage du formulaire d'inscription
-    function displaySubscribe() {
-        require(__DIR__ . '/../view/frontend/subscribe.php');
-    }
-
-    // ajouter un membre
-    function addMember($pseudo, $pass, $mail) {
-        $memberManager = new MemberManager();
-
-        $reCaptcha = $memberManager->getReCaptcha($_POST['g-recaptcha-response']);
-
-        if ($reCaptcha->success == true) {
-            $usernameValidity = $memberManager->checkPseudo($pseudo);
-            $mailValidity = $memberManager->checkMail($mail);
-
-            if ($usernameValidity) {
-                header('Location: index.php?action=subscribe&error=invalidUsername');	
-            }
-
-            if ($mailValidity) {
-                header('Location: index.php?action=subscribe&error=invalidMail');
-            }
-
-            if (!$usernameValidity && !$mailValidity) {
-                // Hachage du mot de passe
-                $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-                
-                $newMember = $memberManager->createMember($pseudo, $pass, $mail);
-                
-                // redirige vers page d'accueil avec le nouveau paramètre
-                header('Location: index.php?account-status=account-successfully-created');
-            }
-        } else {
-            header('Location: index.php?action=subscribe&error=google-recaptcha');
-        }
-
-    }
-
-    // deconnexion
-    function logout() {
-        $_SESSION = array();
-        setcookie(session_name(), '', time() - 300); //temps en minutes
-        session_destroy();
-
-        header('Location: index.php?logout=success');
     }
 }

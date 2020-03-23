@@ -5,17 +5,13 @@ namespace Controller;
 require_once(__DIR__ . "/../Model/PostManager.php");
 require_once(__DIR__ . "/../Model/CommentManager.php");
 require_once(__DIR__ . "/../Model/Pagination.php");
-//require_once(__DIR__ . "/../Model/Admin.php");
 require_once(__DIR__ . "/../Model/ReportManager.php");
-require_once(__DIR__ . "/../Model/MemberManager.php");
 
 // chargement des classes
 use Model\PostManager;
 use Model\CommentManager;
 use Model\Pagination;
-//use Model\Admin;
 use Model\ReportManager;
-use Model\MemberManager;
 
 class PostController {
     // pour s'enregistrer
@@ -27,7 +23,7 @@ class PostController {
         if (isset($_POST['pass']) AND $_POST['pass'] == "test") {
             header('Location: index.php?action=admin');
         } else {
-            header('Location: index.php?action=admin-login-view&account-status=unsuccess-login');
+            header('Location: index.php?action=displayAdmin&account-status=unsuccess-login');
         }
     }
 
@@ -35,7 +31,6 @@ class PostController {
     function displayAdmin() {
         $postManager = new PostManager(); 
         $pagination = new Pagination();
-        $memberManager = new MemberManager();
         $reportManager = new ReportManager();
 
         $postsPerPage = 4;
@@ -74,7 +69,7 @@ class PostController {
         $postManager = new PostManager();
     
         $post = $postManager->getPost($_GET['id']);
-        require(__DIR__ . '/../View//backend/updatePostView.php');
+        require(__DIR__ . '/../View/backend/updatePostView.php');
     }
     
     function submitUpdate($title, $extract, $content, $postId) {
@@ -82,7 +77,7 @@ class PostController {
         
         $updated = $postManager->updatePost($title, $extract, $content, $postId);
     
-        Header('Location: index.php?action=displayUpdate&update-status=success');
+        Header('Location: index.php?action=displayUpdate&submitUpdate=success');
     }
 
     // pour supprimer un billet
@@ -100,15 +95,6 @@ class PostController {
     
         $deletedComment = $commentManager->deleteComment($commentId);
     
-        Header('Location: index.php?action=displayAdmin&remove-comment=success');
-    }
-
-    // pour supprimer un membre
-    function removeMember($memberId) {
-        $memberManager = new MemberManager();
-    
-        $deletedMember = $memberManager->deleteMember($memberId);
-    
-        Header('Location: index.php?action=admin&remove-member=success');	
+        Header('Location: index.php?action=displayAdmin&removeComment=success');
     }
 }

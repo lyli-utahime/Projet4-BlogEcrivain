@@ -31,36 +31,15 @@ try {
             } else {
                 throw new Exception("Impossible d'envoyer le formulaire");
             }
-        } elseif ($_GET['action'] == 'subscribe') {
-            $frontend->displaySubscribe();
-        }
-        elseif ($_GET['action'] == 'addMember') {
-            if (!empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['pass_confirm']) && !empty($_POST['mail'])) {
-                if (filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-                    if ($_POST['pass'] == $_POST['pass_confirm']) {
-                        $frontend->addMember(strip_tags($_POST['pseudo']), strip_tags($_POST['pass']), strip_tags($_POST['mail']));
-                    } else {
-                        throw new Exception('Les deux mots de passe ne sont pas identique.');
-                    }
-                } else {
-                    throw new Exception('Adresse mail non valide.');
-                }
-            } else {
-                throw new Exception('Tous les champs ne sont pas remplis !');
-            }
-        } elseif ($_GET['action'] == 'login') {
-            $frontend->displayLogin();
-        } elseif ($_GET['action'] == 'loginSubmit') {
-            $frontend->loginSubmit(strip_tags($_POST['pseudo']), strip_tags($_POST['pass']));
         } elseif ($_GET['action'] == 'logout') {
             $frontend->logout();
-        } elseif ($_GET['action'] == 'report') {
+        } elseif ($_GET['action'] == 'postReport') {
             $frontend->postReport($_GET['id'], $_GET['comment-id'], $_SESSION['id']);
-        } elseif ($_GET['action'] == 'adminLogin') {
+        } elseif ($_GET['action'] == 'loginAdmin') {
             if (isset($_SESSION)) {
                 $postController->loginAdmin();
             }
-        } elseif ($_GET['action'] === 'admin-login-view') {
+        } elseif ($_GET['action'] === 'displayAdmin') {
             if (isset($_SESSION)) {
                 $postController->displayAdmin();
             }
@@ -76,7 +55,7 @@ try {
             } else {
                 throw new Exception('Contenu vide !');
             }
-        } elseif ($_GET['action'] == 'updatePost') {
+        } elseif ($_GET['action'] == 'displayUpdate') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (isset($_SESSION) && $_SESSION['groups_id'] == '1') {
                     $postController->displayUpdate();
@@ -86,13 +65,11 @@ try {
             }
         } elseif ($_GET['action'] == 'submitUpdate') {
             $postController->submitUpdate($_POST['title'], $_POST['content'], $_GET['id']);
-        } elseif ($_GET['action'] == 'deletePost') {
+        } elseif ($_GET['action'] == 'removePost') {
             $postController->removePost($_GET['id']);
-        } elseif ($_GET['action'] == 'deleteComment') {
+        } elseif ($_GET['action'] == 'removeComment') {
             $postController->removeComment($_GET['id']);
-        } elseif ($_GET['action'] == 'deleteMember') {
-            $postController->removeMember($_GET['id']);
-        }
+        } 
     } else {
         $frontend->listPosts();
     }

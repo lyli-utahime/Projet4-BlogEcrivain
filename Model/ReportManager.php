@@ -6,10 +6,10 @@ require_once("Manager.php");
 
 class ReportManager extends Manager{
 
-    public function getIdReports($memberId) {
+    public function getIdReports() {
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('SELECT comment_id FROM reports WHERE users_id = ?');
-        $req->execute(array($memberId));
+        $req = $bdd->prepare('SELECT comment_id FROM reports');
+        $req->execute(array());
         $reports = $req->fetchAll(\PDO::FETCH_ASSOC);
        	$idComment = array();
        	foreach ($reports as $value) {
@@ -19,10 +19,10 @@ class ReportManager extends Manager{
         return $idComment;
     }
 
-    public function postReports($commentId, $memberId) {
+    public function postReports($commentId) {
     	$bdd = $this->dbConnect();
-    	$req = $bdd->prepare('INSERT INTO reports(comment_id, users_id, report_date) VALUES(?, ?, NOW())');
-    	$reported = $req->execute(array($commentId, $memberId));
+    	$req = $bdd->prepare('INSERT INTO reports(comment_id, report_date) VALUES(?, NOW())');
+    	$reported = $req->execute(array($commentId));
 
     	return $reported;
     }
