@@ -124,7 +124,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'success') {
                     <?php
                         for ($i = 1; $i <= $nbPage; $i++) {
                             if ((!isset($_GET['page']) && $i == 1) || (isset($_GET['page']) && $_GET['page'] == $i)) {
-                                echo "<a href=\'' class='cPage'>$i</a>";
+                                echo "<a class='cPage'>$i</a>";
                             } else {
                                 echo "<a href=\'index.php?page=$i\'>$i</a>";
                                 }

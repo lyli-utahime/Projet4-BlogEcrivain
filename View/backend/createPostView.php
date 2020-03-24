@@ -29,7 +29,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="submit" class="btn" value="POSTER" style="width: 100%;" />
+                                    <input type="submit" class="btn" value="Poster l'article" style="width: 100%;" />
                                     </div>
                                 </div>
 

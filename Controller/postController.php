@@ -20,11 +20,11 @@ class PostController {
     }
 
     function loginAdmin() {
-        if (isset($_POST['pass']) AND $_POST['pass'] == "test") {
+        if (isset($_POST['login']) && $_POST['login'] === "admin" && $_POST['pass'] === "test") {
             header('Location: index.php?action=admin');
-        } else {
-            header('Location: index.php?action=displayAdmin&account-status=unsuccess-login');
         }
+
+        header('Location: index.php?action=displayAdmin&account-status=unsuccess-login');
     }
 
     // affichage du panneau d'administration
@@ -48,7 +48,18 @@ class PostController {
         
         $posts = $postManager->getPosts($cPage, $postsPerPage);
 
+        $reports = $reportManager->getReports();
+
         require(__DIR__ . '/../view/backend/adminView.php');
+    }
+
+    // function pour se deconnecter automatiquement au bout de 3 minutes sans aucun activié de sourie
+    function logout() {
+        $_SESSION = array();
+        setcookie(session_name(), '', time() - 300);
+        session_destroy();
+    
+        header('Location: index.php?logout=success');
     }
 
     // affichage du formulaire pour créer un billet
@@ -69,7 +80,7 @@ class PostController {
         $postManager = new PostManager();
     
         $post = $postManager->getPost($_GET['id']);
-        require(__DIR__ . '/../View/backend/updatePostView.php');
+        require(__DIR__ . '/../View/backend/updatePost.php');
     }
     
     function submitUpdate($title, $extract, $content, $postId) {

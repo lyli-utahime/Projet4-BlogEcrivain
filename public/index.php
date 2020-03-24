@@ -13,14 +13,21 @@ $postController = new PostController();
 
 try {
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
+
+//-----------------------------------------------------------
+//                 blog visible par tous
+//-----------------------------------------------------------
+// affichage des billets en page d'accueil
+        if ($_GET['action'] === 'listPosts') {
             $frontend->listPosts();
+// affichage d'un seul billet et les commentaires
         } elseif ($_GET['action'] === 'post') {
             if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
                 $frontend->post();
             } else {
                 throw new Exception('Aucun billet envoyé');
             }
+// ajouter un commentaire
         } elseif ($_GET['action'] === 'addComment') {
             if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
@@ -31,45 +38,63 @@ try {
             } else {
                 throw new Exception("Impossible d'envoyer le formulaire");
             }
-        } elseif ($_GET['action'] == 'logout') {
-            $frontend->logout();
+// signaler un commentaire
         } elseif ($_GET['action'] == 'postReport') {
             $frontend->postReport($_GET['id'], $_GET['comment-id'], $_SESSION['id']);
-        } elseif ($_GET['action'] == 'loginAdmin') {
-            if (isset($_SESSION)) {
-                $postController->loginAdmin();
-            }
-        } elseif ($_GET['action'] === 'displayAdmin') {
-            if (isset($_SESSION)) {
-                $postController->displayAdmin();
-            }
+
+//-----------------------------------------------------------
+//                    connexion
+//-----------------------------------------------------------
+// deconnexion
+        } elseif ($_GET['action'] === 'logout') {
+            $postController->logout();
+// lien vers formulaire de connexion
+        } elseif ($_GET['action'] === 'displayLoginAdmin') {
+            $postController->displayLoginAdmin();
+// lien vers le formulaire
+        } elseif ($_GET['action'] === 'loginAdmin') {
+            $postController->loginAdmin();
+// lien vers administration
+        } elseif ($_GET['action'] === 'displayAdmin' && isset($_SESSION)) {
+            $postController->displayAdmin();
+
+//-----------------------------------------------------------
+//                    administration
+//-----------------------------------------------------------
+// formulaire pour créer un billet
         } elseif ($_GET['action'] === 'create') {
             if (isset($_SESSION)) {
                 $postController->create();
             } else {
                 throw new Exception('Administrateur non identifié');
             }
+// ajouter un billet
         } elseif ($_GET['action'] === 'newPost') {
             if (!empty($_POST['title']) && !empty($_POST['extract']) && !empty($_POST['content'])) {
                 $frontend->newPost($_POST['title'], $_POST['extract'], $_POST['content']);
             } else {
                 throw new Exception('Contenu vide !');
             }
-        } elseif ($_GET['action'] == 'displayUpdate') {
+// formulaire pour modifier un billet
+        } elseif ($_GET['action'] === 'displayUpdate') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (isset($_SESSION) && $_SESSION['groups_id'] == '1') {
+                if ('1' == isset($_SESSION)) {
                     $postController->displayUpdate();
                 }  
             } else {
                 throw new Exception('Administrateur non identifié');
             }
-        } elseif ($_GET['action'] == 'submitUpdate') {
-            $postController->submitUpdate($_POST['title'], $_POST['content'], $_GET['id']);
-        } elseif ($_GET['action'] == 'removePost') {
+// modifier un billet
+        } elseif ($_GET['action'] === 'submitUpdate') {
+            $postController->submitUpdate($_POST['title'], $_POST['extract'], $_POST['content'], $_GET['id']);
+// supprimer un billet
+        } elseif ($_GET['action'] === 'removePost') {
             $postController->removePost($_GET['id']);
-        } elseif ($_GET['action'] == 'removeComment') {
+// supprimer un commentaire
+        } elseif ($_GET['action'] === 'removeComment') {
             $postController->removeComment($_GET['id']);
         } 
+
     } else {
         $frontend->listPosts();
     }
