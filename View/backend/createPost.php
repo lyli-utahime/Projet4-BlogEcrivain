@@ -10,12 +10,17 @@
                 <div id="container-main single-main">
                     <p class="returnLink"><a href="index.php?action=displayAdmin">Retour au panneau d'administration</a></p>
                     <div id="col-lg-6">
-                        <form id="post-form" action="index.php?action=newPost&amp;id=<?= $post['id'] ?>" method="post">
+                        <form id="post-form" action="index.php?action=newPost" method="post">
                             <div class="row">
 
                                 <div class="col-lg-12">
                                     <div class="form-group contact-block1">
                                     <input type="text" name="title" class="form-control" id="title" placeholder="VOTRE TITRE" size="80" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group contact-block1">
+                                    <input type="date" name="creation_date" class="form-control" id="creation_date">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -45,4 +50,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require(__DIR__ . '/../frontend/template.php'); ?>

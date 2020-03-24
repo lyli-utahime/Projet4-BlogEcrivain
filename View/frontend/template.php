@@ -47,8 +47,8 @@
     <section id="footer" class="text-center">
         <div class="container">
 
-            <p>&copy; Copyrights Folio. All rights reserved.<br>
-            Faux blog dans le cadre d’une formation de développeur web junior.<br>
+            <p>&copy; Copyrights Folio. All rights reserved.</br>
+            Faux blog dans le cadre d’une formation de développeur web junior.</br>
             <a href="">Mentions légales</a></p>
 
             <div class="credits">

@@ -71,7 +71,7 @@ try {
 // ajouter un billet
         } elseif ($_GET['action'] === 'newPost') {
             if (!empty($_POST['title']) && !empty($_POST['extract']) && !empty($_POST['content'])) {
-                $frontend->newPost($_POST['title'], $_POST['extract'], $_POST['content']);
+                $postController->newPost($_POST['title'], $_POST['extract'], $_POST['content']);
             } else {
                 throw new Exception('Contenu vide !');
             }

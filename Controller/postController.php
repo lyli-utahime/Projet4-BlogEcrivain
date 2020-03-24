@@ -14,7 +14,7 @@ use Model\Pagination;
 use Model\ReportManager;
 
 class PostController {
-    // pour s'enregistrer
+// pour s'enregistrer
     function displayLoginAdmin() {
         require(__DIR__ . '/../View/frontend/loginAdmin.php');
     }
@@ -27,14 +27,14 @@ class PostController {
         header('Location: index.php?action=displayAdmin&account-status=unsuccess-login');
     }
 
-    // affichage du panneau d'administration
+// affichage du panneau d'administration
     function displayAdmin() {
         $postManager = new PostManager(); 
         $pagination = new Pagination();
         $reportManager = new ReportManager();
 
         $postsPerPage = 4;
-    
+
         $nbPosts = $pagination->getPostsPagination();
         $nbPage = $pagination->getPostsPages($nbPosts, $postsPerPage);
     
@@ -45,7 +45,7 @@ class PostController {
                 $cPage = (intval($_GET['page']) - 1) * $postsPerPage;
             }
         }
-        
+
         $posts = $postManager->getPosts($cPage, $postsPerPage);
 
         $reports = $reportManager->getReports();
@@ -53,7 +53,7 @@ class PostController {
         require(__DIR__ . '/../view/backend/adminView.php');
     }
 
-    // function pour se deconnecter automatiquement au bout de 3 minutes sans aucun activié de sourie
+// function pour se deconnecter automatiquement au bout de 3 minutes sans aucun activié de sourie
     function logout() {
         $_SESSION = array();
         setcookie(session_name(), '', time() - 300);
@@ -62,11 +62,11 @@ class PostController {
         header('Location: index.php?logout=success');
     }
 
-    // affichage du formulaire pour créer un billet
+// affichage du formulaire pour créer un billet
     function create() {
-        require(__DIR__ . '/../View/backend/createPostView.php');
+        require(__DIR__ . '/../View/backend/createPost.php');
     }
-    // pour ajouter un billet
+// pour ajouter un billet
     function newPost($title, $extract, $content) {
         $postManager = new PostManager();
 
@@ -75,37 +75,37 @@ class PostController {
         Header('Location: index.php?action=displayAdmin&newPost=success');
     }
 
-    // pour modifier un billet
+// pour modifier un billet
     function displayUpdate() {
         $postManager = new PostManager();
-    
-        $post = $postManager->getPost($_GET['id']);
+
+        $post = $postManager->getPostUpdate($_GET['id']);
         require(__DIR__ . '/../View/backend/updatePost.php');
     }
-    
+
     function submitUpdate($title, $extract, $content, $postId) {
         $postManager = new PostManager();
-        
+
         $updated = $postManager->updatePost($title, $extract, $content, $postId);
-    
-        Header('Location: index.php?action=displayUpdate&submitUpdate=success');
+
+        Header('Location: index.php?action=admin&submitUpdate=success');
     }
 
-    // pour supprimer un billet
+// pour supprimer un billet
     function removePost($postId) {
         $postManager = new PostManager();
-    
+
         $deletedPost = $postManager->deletePost($postId);
-    
+
         Header('Location: index.php?action=displayAdmin');
     }
     
-    // pour supprimer un commentaire
+// pour supprimer un commentaire
     function removeComment($commentId) {
         $commentManager = new CommentManager();
-    
+
         $deletedComment = $commentManager->deleteComment($commentId);
-    
+
         Header('Location: index.php?action=displayAdmin&removeComment=success');
     }
 }

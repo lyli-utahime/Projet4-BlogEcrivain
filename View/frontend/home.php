@@ -113,7 +113,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'success') {
             <div class="journal-txt">
                 <?php foreach($posts as $post) { ?>
                 <h3><a href="index.php?action=post&amp;id=<?= $post['id'] ?>"><?= htmlspecialchars($post['title']) ?></a></h3>
-                <em style="color:#000000;">le <?= $post['creation_date_fr'] ?></em><br>
+                <em style="color:#000000;">le <?= $post['creation_date_fr'] ?></em></br>
                 <p class="contentPost">
                     <?= nl2br(htmlspecialchars($post['extract'])) ?><br />
                 </p>
@@ -133,8 +133,6 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'success') {
                     ?>
                 </div>
             </div>
-            <br><br>
-            <h2><a href="../View/frontend/createPostView.php">Ajouter un billet</a></h2>
         </div>
     </div>
 </section>

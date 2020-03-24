@@ -39,10 +39,20 @@ class PostManager extends Manager {
     // créer un billet
     public function createPost($title, $extract, $content) {
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('INSERT INTO posts(title, extract, content, creation_date, update_date) VALUES (?, ?, ?, NOW(), NOW())');
+        $req = $bdd->prepare('INSERT INTO posts(title, extract, content, creation_date) VALUES (?, ?, ?, NOW())');
         $newPost = $req->execute(array($title, $extract, $content));
 
         return $newPost;
+    }
+
+    // page : modifier un billet, afficher le billet
+    function getPostUpdate($postId) {
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('SELECT id, title, extract, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
+        $req->execute(array($postId));
+        $post = $req->fetch();
+
+        return $post;
     }
 
     // supprimer un billet

@@ -76,7 +76,7 @@
                             <div class="cmt padDiv">
 
                                 <!-- formulaire pour ajouter un commentaire -->
-                                <h6>Ajouter un commentaire</h6><br>
+                                <h6>Ajouter un commentaire</h6></br>
                                 <form id="comment-form" method="post" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" role="form">
                                 <div class="row">
                                     <div class="col-md-12">

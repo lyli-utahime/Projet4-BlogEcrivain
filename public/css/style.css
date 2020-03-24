@@ -560,11 +560,32 @@ nav ul li a {
     width: 100%;
     height: auto;
     background: #f7f7f7;
-    padding-top: 190px;
+    padding-top: 30px;
     padding-bottom: 30px;
     border: 20px solid #b8a07c;
 }
 
-#postManage {
+.createPost {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.Manager {
+    background: #333;
+    color: #fff;
+}
+
+.Manager:hover,
+.Manager:focus {
+    color: #b8a07c;
+}
+
+#postManage,
+#commentManage {
     background-color: #ffffff;
+    padding: 20px;
+}
+
+.postTitle {
+    margin-bottom: 5px;
 }

@@ -2,47 +2,57 @@
 
 <?php ob_start(); ?>
 
-<section id="createPost">
-    <h1>Modifier un article</h1>
-    <div id="managerBlock">
-    <?php
-    if (isset($_GET['updatePost']) && $_GET['updatePost'] == 'success') {
-        echo '<p id="success">L\'article a bien été modifié !</p>';
-    }
+<section id="createPost" class="main-content paddsection">
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Modifier un article</h1>
+                <div id="managerBlock">
+                <?php
+                if (isset($_GET['updatePost']) && $_GET['updatePost'] == 'success') {
+                    echo '<p id="success">L\'article a bien été modifié !</p>';
+                }
 
-    ?>
-        <p class="returnLink"><a href="index.php?action=admin">Retour au panneau d'administration</a></p>
-        <div id="col-lg-6">
-            <form action="action="index.php?action=submitUpdate&amp;id=<?= $post['id'] ?>" method="post" class="contactForm">
-                <div class="row">
+                ?>
+                    <p class="returnLink"><a href="index.php?action=admin">Retour au panneau d'administration</a></p>
+                    <div id="col-lg-6">
+                        <form action="action="index.php?action=submitUpdate&amp;id=<?= $post['id'] ?>" method="post" class="contactForm">
+                            <div class="row">
 
-                    <div class="col-lg-12">
-                        <div class="form-group contact-block1">
-                        <input type="text" name="title" class="form-control" id="title" placeholder="Votre titre" size="80" /><br/>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="form-group contact-block1">
-                        <textarea name="extract" class="form-control" id="extract" placeholder="Extrait de l'article"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="form-group contact-block1">
-                        <textarea name="content" class="form-control" id="content" placeholder="Votre article"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <input type="submit" class="btn" value="Poster" />
-                        </div>
-                    </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group contact-block1">
+                                    <input type="text" name="title" class="form-control" id="title" value="<?= $post['title'];?>" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group contact-block1">
+                                    <input type="date" name="creation_date" class="form-control" id="creation_date" value="<?= $post['creation_date'];?>">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group contact-block1">
+                                    <textarea name="extract" class="form-control" id="extract" style="height: 100px;"><?= $post['extract'];?></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group contact-block1">
+                                    <textarea name="content" class="form-control" id="content" style="height: 200px;"><?= $post['content'];?></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="submit" class="btn" value="Modifier l'article" style="width: 100%;" />
+                                    </div>
+                                </div>
 
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>
 </section>
 
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require(__DIR__ . '/../frontend/template.php'); ?>
