@@ -70,4 +70,27 @@ class Frontend {
 
         header('Location: index.php?action=post&id=' . $postId . '&report=success#commentsFrame');
     }
+
+    // envoie du formulaire de contact
+    function sendContactForm() {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+
+        $message = addslashes($message);
+        $message = str_replace("\'","'",$message);
+
+        $to = "utahime@hotmail.fr";
+        $subject = "Formulaire de contact";
+        $msg = "Vous avez un nouveau message\n
+        Nom: $name\n
+        Email: $email\n
+        Message: $message";
+        $head = "From: $name \n 
+        Reply-To: $email";
+
+        mail($to, $subject, $msg, $head);
+
+        require(__DIR__ . '/../View/frontend/contact.php');
+    }
 }

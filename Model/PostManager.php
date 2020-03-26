@@ -7,8 +7,6 @@ require_once("Manager.php");
 class PostManager extends Manager {
     // page index
     function getPosts($cPage, $postsPerPage) {
-        $cPage = 1;
-
         $bdd = $this->dbConnect();
         $req = $bdd->prepare("SELECT id, title, extract, DATE_FORMAT(creation_date, '%d/%m/%Y %H:%i:%s') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT $cPage, $postsPerPage");
         $req->execute(array());
@@ -27,23 +25,14 @@ class PostManager extends Manager {
         return $post;
     }
 
-    // modifier un billet
-    public function updatePost($title, $extract, $content, $postId) {
-        $bdd = $this->dbConnect();
-        $req = $bdd->prepare('UPDATE posts SET title = ?, extract = ?, content = ?, update_date = NOW() WHERE id = ?');
-        $updated = $req->execute(array($title, $extract, $content, $postId));
-
-        return $updated;
-    }
-
     // créer un billet
-    public function createPost($title, $extract, $content) {
-        $bdd = $this->dbConnect();
-        $req = $bdd->prepare('INSERT INTO posts(title, extract, content, creation_date) VALUES (?, ?, ?, NOW())');
-        $newPost = $req->execute(array($title, $extract, $content));
-
-        return $newPost;
-    }
+        public function createPost($title, $extract, $content) {
+            $bdd = $this->dbConnect();
+            $req = $bdd->prepare('INSERT INTO posts(title, extract, content, creation_date) VALUES (?, ?, ?, NOW())');
+            $newPost = $req->execute(array($title, $extract, $content));
+    
+            return $newPost;
+        }
 
     // page : modifier un billet, afficher le billet
     function getPostUpdate($postId) {
@@ -53,6 +42,15 @@ class PostManager extends Manager {
         $post = $req->fetch();
 
         return $post;
+    }
+
+    // modifier un billet
+    public function updatePost($title, $extract, $content, $postId) {
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('UPDATE posts SET title = ?, extract = ?, content = ?, update_date = NOW() WHERE id = ?');
+        $updated = $req->execute(array($title, $extract, $content, $postId));
+
+        return $updated;
     }
 
     // supprimer un billet

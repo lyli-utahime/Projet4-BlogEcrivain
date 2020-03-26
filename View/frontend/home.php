@@ -126,7 +126,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'success') {
                             if ((!isset($_GET['page']) && $i == 1) || (isset($_GET['page']) && $_GET['page'] == $i)) {
                                 echo "<a class='cPage'>$i</a>";
                             } else {
-                                echo "<a href=\'index.php?page=$i\'>$i</a>";
+                                echo "<a href='index.php?page=$i'>$i</a>";
                                 }
                             }
                         }

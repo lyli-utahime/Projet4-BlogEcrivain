@@ -14,19 +14,14 @@
                 }
 
                 ?>
-                    <p class="returnLink"><a href="index.php?action=admin">Retour au panneau d'administration</a></p>
+                    <p class="returnLink"><a href="index.php?action=displayAdmin">Retour au panneau d'administration</a></p>
                     <div id="col-lg-6">
-                        <form action="action="index.php?action=submitUpdate&amp;id=<?= $post['id'] ?>" method="post" class="contactForm">
+                        <form action="index.php?action=submitUpdate&amp;id=<?= $post['id'] ?>" method="post" class="contactForm">
                             <div class="row">
 
                                 <div class="col-lg-12">
                                     <div class="form-group contact-block1">
                                     <input type="text" name="title" class="form-control" id="title" value="<?= $post['title'];?>" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group contact-block1">
-                                    <input type="date" name="creation_date" class="form-control" id="creation_date" value="<?= $post['creation_date'];?>">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">

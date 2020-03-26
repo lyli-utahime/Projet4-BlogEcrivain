@@ -21,36 +21,33 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <form action="" method="post" role="form" class="contactForm">
+                    <form action="index.php?action=sendContactForm" method="post" class="contactForm">
                     <div class="row">
-
-                        <div id="sendmessage">Votre message a été envoyé !</div>
-                        <div id="errormessage"></div>
 
                         <div class="col-lg-6">
                             <div class="form-group contact-block1">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" data-rule="minlen:4" data-msg="Veuillez entre au moins 4 caractères" />
                                 <div class="validation"></div>
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Votre Email" data-rule="email" data-msg="Please enter a valid email" />
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Votre Email" data-rule="email" data-msg="Merci d'entrer un mail valide" />
                                 <div class="validation"></div>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet" data-rule="minlen:4" data-msg="Veuillez entre au moins 8 caractères" />
                                 <div class="validation"></div>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="12" data-rule="required" data-msg="Please write something for us" style="height: 200px;" placeholder="Message"></textarea>
+                                <textarea class="form-control" name="message" rows="12" data-rule="required" data-msg="Ecrivez votre message" style="height: 200px;" placeholder="Message"></textarea>
                                 <div class="validation"></div>
                             </div>
                         </div>

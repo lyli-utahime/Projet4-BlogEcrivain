@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
     'use strict';
 
     //Contact
-    $('form.contactForm').submit(function() {
+    $('form.sendContactForm').submit(function() {
         var f = $(this).find('.form-group'),
             ferror = false,
             emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
@@ -110,14 +110,14 @@ jQuery(document).ready(function($) {
         else var str = $(this).serialize();
         $.ajax({
             type: 'POST',
-            url: 'contactform/contactform.php',
+            url: '../View/frontend/contact.php',
             data: str,
             success: function(msg) {
                 // alert(msg);
                 if (msg == 'OK') {
                     $('#sendmessage').addClass('show');
                     $('#errormessage').removeClass('show');
-                    $('.contactForm')
+                    $('.sendContactForm')
                         .find('input, textarea')
                         .val('');
                 } else {

@@ -32,7 +32,7 @@
     <div class="container">
         <div class="contact-block1">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="offset-md-4 col-md-6">
                     <?php
                     if (isset($_GET['account-status']) &&  $_GET['account-status'] == 'unsuccess-login') {
                     echo '<p id="error">Mauvais identifiant ou mot de passe !<p>';
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
-                                    <input type="submit" value="Se connecter" />
+                                <input type="submit" class="btn" value="Se connecter" />
                         </div>
                         </form>
                     </div>

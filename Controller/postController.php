@@ -88,7 +88,7 @@ class PostController {
 
         $updated = $postManager->updatePost($title, $extract, $content, $postId);
 
-        Header('Location: index.php?action=admin&submitUpdate=success');
+        Header('Location: index.php?action=displayAdmin&submitUpdate=success');
     }
 
 // pour supprimer un billet

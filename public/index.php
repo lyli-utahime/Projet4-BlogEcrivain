@@ -39,8 +39,16 @@ try {
                 throw new Exception("Impossible d'envoyer le formulaire");
             }
 // signaler un commentaire
-        } elseif ($_GET['action'] == 'postReport') {
+        } elseif ($_GET['action'] === 'postReport') {
             $frontend->postReport($_GET['id'], $_GET['comment-id'], $_SESSION['id']);
+// envoie du formulaire
+        } else if ($_GET['action'] === 'sendContactForm') {
+            if(isset($_POST) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
+                extract($_POST);
+                if(!empty($name) && !empty($email) && !empty($message)) {
+                    $frontend->sendContactForm();
+                }
+            }
 
 //-----------------------------------------------------------
 //                    connexion
@@ -80,7 +88,7 @@ try {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if ('1' == isset($_SESSION)) {
                     $postController->displayUpdate();
-                }  
+                }
             } else {
                 throw new Exception('Administrateur non identifié');
             }
