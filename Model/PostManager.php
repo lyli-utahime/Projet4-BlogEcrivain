@@ -47,7 +47,7 @@ class PostManager extends Manager {
     // modifier un billet
     public function updatePost($title, $extract, $content, $postId) {
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('UPDATE posts SET title = ?, extract = ?, content = ?, update_date = NOW() WHERE id = ?');
+        $req = $bdd->prepare('UPDATE posts SET title = ?, extract = ?, content = ?, creation_date = NOW() WHERE id = ?');
         $updated = $req->execute(array($title, $extract, $content, $postId));
 
         return $updated;

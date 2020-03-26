@@ -53,15 +53,6 @@ class PostController {
         require(__DIR__ . '/../view/backend/adminView.php');
     }
 
-// function pour se deconnecter automatiquement au bout de 3 minutes sans aucun activié de sourie
-    function logout() {
-        $_SESSION = array();
-        setcookie(session_name(), '', time() - 300);
-        session_destroy();
-    
-        header('Location: index.php?logout=success');
-    }
-
 // affichage du formulaire pour créer un billet
     function create() {
         require(__DIR__ . '/../View/backend/createPost.php');

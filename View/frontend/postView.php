@@ -53,6 +53,9 @@
                                     <h3 class="mb-30">Commentaires</h6>
                                     <ul class="entry-comments-list list-unstyled">
                                         <?php
+                                        if (isset($_GET['report']) && $_GET['report'] == 'success') {
+                                            echo '<p id="success">Le commentaire a bien été signalé.</p>';
+                                        }
                                         while ($comment = $comments->fetch())
                                         { ?>
                                         <li>
@@ -62,7 +65,7 @@
                                                     <span><a href="#"><?= $comment['comment_date_fr'] ?></a></span>
                                                     <p class="contentPost"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                                                 </div>
-                                                  <!--  <img src="../public/images/avatar.jpg" class="entry-comments-avatar" alt="">-->
+                                                <a href="index.php?action=report&amp;comment_id=<?= $comment['id'] ?>&amp;post_id=<?= $comment['post_id'] ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?'));"><i class="fas fa-exclamation-triangle"></i> Signaler</a></p>
                                             </div>
                                         </li>
 

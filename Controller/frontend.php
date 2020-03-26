@@ -68,7 +68,7 @@ class Frontend {
 
         $reported = $reportManager->postReports($commentId);
 
-        header('Location: index.php?action=post&id=' . $postId . '&report=success#commentsFrame');
+        header('Location: index.php?action=post&id=' . $postId . '&report=success');
     }
 
     // envoie du formulaire de contact
@@ -80,7 +80,7 @@ class Frontend {
         $message = addslashes($message);
         $message = str_replace("\'","'",$message);
 
-        $to = "utahime@hotmail.fr";
+        $to = "lili.utahime@gmail.com";
         $subject = "Formulaire de contact";
         $msg = "Vous avez un nouveau message\n
         Nom: $name\n
