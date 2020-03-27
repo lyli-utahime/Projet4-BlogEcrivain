@@ -1,5 +1,5 @@
 
-<!-- start sectoion contact -->
+<!-- start section contact -->
 <section id="contact" class="paddsection">
     <div class="container">
         <div class="contact-block1">
@@ -63,8 +63,6 @@
         </div>
     </div>
 </section>
-<!-- start sectoion contact -->
+<!-- start section contact -->
 
-<?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>

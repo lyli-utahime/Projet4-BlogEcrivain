@@ -73,6 +73,9 @@ class Frontend {
 
     // envoie du formulaire de contact
     function sendContactForm() {
+        ini_set("SMTP","smtp.gmail.com");
+        ini_set("smpt_port", 587);
+
         $name = $_POST['name'];
         $email = $_POST['email'];
         $message = $_POST['message'];

@@ -40,7 +40,7 @@ try {
             }
 // signaler un commentaire
         } elseif ($_GET['action'] === 'postReport') {
-            $frontend->postReport($_GET['id'], $_GET['comment-id'], $_SESSION['id']);
+            $frontend->postReport($_GET['id'], $_GET['comment_id']);
 // envoie du formulaire
         } else if ($_GET['action'] === 'sendContactForm') {
             if(isset($_POST) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
@@ -53,9 +53,6 @@ try {
 //-----------------------------------------------------------
 //                    connexion
 //-----------------------------------------------------------
-// deconnexion
-        } elseif ($_GET['action'] === 'logout') {
-            $postController->logout();
 // lien vers formulaire de connexion
         } elseif ($_GET['action'] === 'displayLoginAdmin') {
             $postController->displayLoginAdmin();
