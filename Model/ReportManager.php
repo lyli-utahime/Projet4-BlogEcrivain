@@ -6,33 +6,25 @@ require_once("Manager.php");
 
 class ReportManager extends Manager{
 
-    // liste des commentaires signalés
-    public function getIdReports() {
-        $bdd = $this->dbConnect();
-        $req = $bdd->prepare('SELECT comment_id FROM reports');
-        $req->execute(array());
-        $reports = $req->fetchAll(\PDO::FETCH_ASSOC);
-        $idComment = array();
-        foreach ($reports as $value) {
-            $idComment[] = $value['comment_id'];
-        }
-
-        return $idComment;
-    }
-
-    // entrer le commentaire signalé dans la base de donnée "reports"
+    // ajout de l'id du commentaire signalé dans la base de donnée "reports"
     public function postReports($commentId) {
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('INSERT INTO reports(comment_id, report_date) VALUES(?, NOW())');
+        $req = $bdd->prepare('INSERT INTO reports(comment_id) VALUES(?)');
         $reported = $req->execute(array($commentId));
 
         return $reported;
     }
 
-    // list des commentaires signalés détails
+    // faire une jointure des tables comments et reports pour pouvoir afficher les informations dans la rubrique administration
     public function getReports() {
       $bdd = $this->dbConnect();
-      $reports = $bdd->query('SELECT COUNT(*) AS nb_reports, comment_id, report_author, report_comment, DATE_FORMAT(comment_date, "%d/%m/%Y %H:%i:%s") AS date_c FROM reports INNER JOIN comments ON reports.comment_id = comments.id GROUP BY comment_id HAVING nb_reports >= 2 ORDER BY nb_reports DESC');
+      // select les colonnes author et comment
+      // de la table comments
+      // récupérer le contenu de la table comments à joindre dans la table reports
+      // par la colonne commune id de comments et comment_id de reports
+      $reports = $bdd->query('SELECT author, post_id, comment 
+      FROM comments LEFT JOIN reports
+      ON comments.id = reports.comment_id ORDER BY reports.id DESC');
 
       return $reports;
     }

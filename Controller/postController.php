@@ -50,7 +50,7 @@ class PostController {
 
         $reports = $reportManager->getReports();
 
-        require(__DIR__ . '/../view/backend/adminView.php');
+        require(__DIR__ . '/../View/backend/adminView.php');
     }
 
 // affichage du formulaire pour créer un billet
@@ -95,8 +95,8 @@ class PostController {
     function removeComment($commentId) {
         $commentManager = new CommentManager();
 
-        $deletedComment = $commentManager->deleteComment($commentId);
+        $deletedComment = $commentManager->deleteComment($_GET['comment_id']);
 
-        Header('Location: index.php?action=displayAdmin&removeComment=success');
+        Header('Location: index.php?action=displayAdmin');
     }
 }

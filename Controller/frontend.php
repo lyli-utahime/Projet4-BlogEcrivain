@@ -63,12 +63,16 @@ class Frontend {
     }
 
     // signaler un commentaire
-    function postReport($postId, $commentId) {
+    function postReport() {
         $reportManager = new ReportManager();
 
-        $reported = $reportManager->postReports($commentId);
+        $reported = $reportManager->postReports($_GET['comment_id']);
 
-        header('Location: index.php?action=post&id=' . $postId . '&report=success');
+        if ($reported === false) {
+            throw new Exception('impossible de signaler le commentaire !');
+        } else {
+            header('Location: index.php?action=displayAdmin');
+        }
     }
 
     // envoie du formulaire de contact
@@ -95,5 +99,9 @@ class Frontend {
         mail($to, $subject, $msg, $head);
 
         require(__DIR__ . '/../View/frontend/contact.php');
+    }
+
+    function mentionsLegales() {
+        require(__DIR__ . '/../View/frontend/mentionslegales.php');
     }
 }

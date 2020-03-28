@@ -65,7 +65,7 @@
                                                     <span><a href="#"><?= $comment['comment_date_fr'] ?></a></span>
                                                     <p class="contentPost"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                                                 </div>
-                                                <a href="index.php?action=postReport&amp;comment_id=<?= $comment['id'] ?>&amp;post_id=<?= $post['id'] ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?'));"><i class="fas fa-exclamation-triangle"></i> Signaler</a></p>
+                                                <a href="index.php?action=postReport&amp;comment_id=<?= $comment['id'] ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?'));"><i class="fas fa-exclamation-triangle"></i> Signaler</a></p>
                                             </div>
                                         </li>
 

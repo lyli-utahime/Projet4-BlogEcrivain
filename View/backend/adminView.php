@@ -64,12 +64,12 @@ $title = "Panneau d'administration"; ?>
                         <div class="postTitle">
                                 <h3 style="color:#000;"><?= $post['title']; ?></h3>
                         </div>
-                            <div class="contentPost">
-                                <p><?= nl2br(htmlspecialchars($post['extract'])) ?></p>
-                                <button class="btn"><a class="Manager" href="index.php?action=displayUpdate&amp;id=<?= $post['id']; ?>">Modifier l'article</a></button>
-                                    <button class="btn"><a class="Manager" href="index.php?action=removePost&amp;id=<?= $post['id']; ?>" onclick="return confirm('Etes vous sûre de vouloir supprimer cette valeur ?');">Supprimer l'article</a></button>
-                                <a href="index.php?action=updatePost&amp;id=<?= $post['id']; ?>"></a>
-                                <em style="color:#000000;">le <?= $post['creation_date_fr'] ?></em>
+                        <div class="contentPost">
+                            <p><?= nl2br(htmlspecialchars($post['extract'])) ?></p>
+                            <button class="btn"><a class="Manager" href="index.php?action=displayUpdate&amp;id=<?= $post['id']; ?>">Modifier l'article</a></button>
+                                <button class="btn"><a class="Manager" href="index.php?action=removePost&amp;id=<?= $post['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer cet article ?');">Supprimer l'article</a></button>
+                            <a href="index.php?action=updatePost&amp;id=<?= $post['id']; ?>"></a>
+                            <em style="color:#000000;">le <?= $post['creation_date_fr'] ?></em>
                         </div>
                     </div>
 
@@ -104,23 +104,14 @@ $title = "Panneau d'administration"; ?>
                         echo '<p id="success">Le commentaire a bien été supprimé !</p>';
                     }
 
-                    $countReport = 0;
                     while ($report = $reports->fetch()) {
                     ?>
-                    <div class="block-main mb-30">
-                        <a href="#"><?= $report['author']; ?></a>
-                        <em style="color:#000000;"><?= $report['date_c']; ?></em>
-                        <button class="btn"></button>
-                            <div id="reportModal<?= $countReport ?>" class="modal">
-                                <div class="modalContent">
-                                    <p>Voulez-vous vraiment supprimer le commentaire de <em><?= $report['author']; ?></em> ?</p>
-                                    <a href="index.php?action=deleteComment&amp;id=<?= $report['comment_id']; ?>">Oui</a>
-                                    <span id="closeCommentModal<?= $countReport++ ?>">Non</span>
-                                </div>
-                            </div>
-                        <p class="nbReports"><?= $report['nb_reports']; ?> signalements</p>
-                        <p><?= $report['comment']; ?></p>	
+                    <p style="color: #000; font-weight: 600;">Auteur du commentaire Sous le billet</p>
+                    <p style="color: #b8a07c;"><?= $report['author']; ?> <a href="index.php?action=post&amp;id=<?= $post['id'] ?>"><?= $post['title']; ?></a>
+                    <div class="contentPost">
+                        <p style="color: #000;"><?= $report['comment']; ?></p>
                     </div>
+                    <button class="btn"><a class="Manager" href="index.php?action=removeComment&amp;comment_id=<?= $comment['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');">Supprimer le commentaire ?</a></button>
                     <?php
                     }
                     $reports->closeCursor();

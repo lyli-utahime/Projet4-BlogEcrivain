@@ -40,7 +40,7 @@ try {
             }
 // signaler un commentaire
         } elseif ($_GET['action'] === 'postReport') {
-            $frontend->postReport($_GET['id'], $_GET['comment_id']);
+            $frontend->postReport($_GET['comment_id']);
 // envoie du formulaire
         } else if ($_GET['action'] === 'sendContactForm') {
             if(isset($_POST) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
@@ -49,6 +49,9 @@ try {
                     $frontend->sendContactForm();
                 }
             }
+// mentions légales
+        } elseif ($_GET['action'] == 'mentionsLegales') {
+        $frontend->mentionsLegales();
 
 //-----------------------------------------------------------
 //                    connexion
@@ -97,9 +100,8 @@ try {
             $postController->removePost($_GET['id']);
 // supprimer un commentaire
         } elseif ($_GET['action'] === 'removeComment') {
-            $postController->removeComment($_GET['id']);
-        } 
-
+            $postController->removeComment($_GET['comment_id']);
+        }
     } else {
         $frontend->listPosts();
     }

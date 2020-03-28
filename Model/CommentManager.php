@@ -26,7 +26,7 @@ class CommentManager extends Manager {
     // supprimer un commentaire
     public function deleteComment($commentId) {
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('DELETE FROM comments WHERE id = ?');
+        $req = $bdd->prepare('DELETE FROM reports WHERE comment_id = ?');
         $deletedComment = $req->execute(array($commentId));
 
         return $deletedComment;
