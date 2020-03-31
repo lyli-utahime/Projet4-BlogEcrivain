@@ -24,10 +24,12 @@ class commentController {
     }
 
 // signaler un commentaire
-    public function postReport() {
+    public function postReport($postId) {
         $reportManager = new ReportManager();
+        $postManager = new PostManager();
 
         $reported = $reportManager->postReports($_GET['comment_id']);
+        $post = $postManager->getPost($_GET['id']);
 
         if ($reported === false) {
             throw new Exception('impossible de signaler le commentaire !');
@@ -43,8 +45,10 @@ class commentController {
 
         $post = $postManager->getPost($_GET['id']);
         $comments = $commentManager->getComments($_GET['id']);
-        $reported = $reportManager->postReports($_GET['comment_id']);
+        $reported = $reportManager->insertReports($_GET['comment_id']);
         $reports = $reportManager->getReports();
+
+        require(__DIR__ . '/../View/backend/adminView.php');
     }
 
 // afficher la page modération des commentaires

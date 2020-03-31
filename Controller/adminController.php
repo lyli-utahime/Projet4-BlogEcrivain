@@ -27,6 +27,7 @@ class adminController {
         $postManager = new PostManager(); 
         $pagination = new Pagination();
         $reportManager = new ReportManager();
+        $commentManager = new CommentManager();
 
         $postsPerPage = 4;
 
