@@ -107,11 +107,14 @@ try {
 // supprimer un billet
         } elseif ($_GET['action'] === 'removePost') {
             $postController->removePost($_GET['id']);
+// afficher la liste des commentaires signalés
+        } elseif ($_GET['action'] === 'displayReportsComments') {
+            $commentController->displayReportsComments();
 // afficher la page de modération des commentaires
         } elseif ($_GET['action'] === 'dispayRemoveComment') {
             $commentController->dispayRemoveComment();
 // supprimer un commentaire
-        } elseif ($_GET['action'] === '"removeComment') {
+        } elseif ($_GET['action'] === 'removeComment') {
             $commentController->removeComment($_GET['comment_id']);
         }
     } else {

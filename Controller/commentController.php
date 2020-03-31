@@ -36,6 +36,17 @@ class commentController {
         }
     }
 
+// afficher la liste des commentaires signalés
+    public function displayReportsComments() {
+        $commentManager = new CommentManager();
+        $postManager = new PostManager();
+
+        $post = $postManager->getPost($_GET['id']);
+        $comments = $commentManager->getComments($_GET['id']);
+        $reported = $reportManager->postReports($_GET['comment_id']);
+        $reports = $reportManager->getReports();
+    }
+
 // afficher la page modération des commentaires
     public function dispayRemoveComment() {
         $postManager = new PostManager();
