@@ -2,14 +2,23 @@
  
 session_start();
  
-require_once(__DIR__ . '/../Controller/Frontend.php');
+require_once(__DIR__ . '/../Controller/frontend.php');
 require_once(__DIR__ . '/../Controller/postController.php');
+require_once(__DIR__ . '/../Controller/commentController.php');
+require_once(__DIR__ . '/../Controller/contactController.php');
+require_once(__DIR__ . '/../Controller/adminController.php');
 
-use Controller\Frontend;
+use Controller\frontend;
 use Controller\postController;
+use Controller\commentController;
+use Controller\contactController;
+use Controller\adminController;
 
 $frontend = new Frontend();
 $postController = new PostController();
+$commentController = new CommentController();
+$contactController = new ContactController();
+$adminController = new AdminController();
 
 try {
     if (isset($_GET['action'])) {
@@ -31,7 +40,7 @@ try {
         } elseif ($_GET['action'] === 'addComment') {
             if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    $frontend->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                    $commentController->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 } else {
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
@@ -40,13 +49,13 @@ try {
             }
 // signaler un commentaire
         } elseif ($_GET['action'] === 'postReport') {
-            $frontend->postReport($_GET['comment_id']);
-// envoie du formulaire
+            $commentController->postReport($_GET['comment_id']);
+// envoie du formulaire de contact
         } else if ($_GET['action'] === 'sendContactForm') {
             if(isset($_POST) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
                 extract($_POST);
                 if(!empty($name) && !empty($email) && !empty($message)) {
-                    $frontend->sendContactForm();
+                    $contactController->sendContactForm();
                 }
             }
 // mentions légales
@@ -58,13 +67,13 @@ try {
 //-----------------------------------------------------------
 // lien vers formulaire de connexion
         } elseif ($_GET['action'] === 'displayLoginAdmin') {
-            $postController->displayLoginAdmin();
+            $adminController->displayLoginAdmin();
 // lien vers le formulaire
         } elseif ($_GET['action'] === 'loginAdmin') {
-            $postController->loginAdmin();
+            $adminController->loginAdmin();
 // lien vers administration
         } elseif ($_GET['action'] === 'displayAdmin' && isset($_SESSION)) {
-            $postController->displayAdmin();
+            $adminController->displayAdmin();
 
 //-----------------------------------------------------------
 //                    administration
@@ -100,10 +109,10 @@ try {
             $postController->removePost($_GET['id']);
 // afficher la page de modération des commentaires
         } elseif ($_GET['action'] === 'dispayRemoveComment') {
-            $postController->dispayRemoveComment();
+            $commentController->dispayRemoveComment();
 // supprimer un commentaire
         } elseif ($_GET['action'] === '"removeComment') {
-            $postController->removeComment($_GET['comment_id']);
+            $commentController->removeComment($_GET['comment_id']);
         }
     } else {
         $frontend->listPosts();
