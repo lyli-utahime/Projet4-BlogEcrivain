@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group contact-block1">
-                                    <textarea name="content" class="form-control" id="content" placeholder="VOTRE ARTICLE" style="height: 200px;"></textarea>
+                                    <textarea name="content" class="form-control" id="post" placeholder="VOTRE ARTICLE" style="height: 200px;"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">

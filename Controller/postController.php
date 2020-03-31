@@ -90,7 +90,19 @@ class PostController {
 
         Header('Location: index.php?action=displayAdmin');
     }
-    
+
+// afficher la page modération des commentaires
+    function dispayRemoveComment() {
+        $postManager = new PostManager();
+        $commentManager = new CommentManager();
+
+        $post = $postManager->getPost($_GET['id']);
+        $comments = $commentManager->getComments($_GET['id']);
+        $deletedComment = $commentManager->deleteComment($_GET['comment_id']);
+
+        require(__DIR__ . '/../View/backend/commentManage.php');
+    }
+
 // pour supprimer un commentaire
     function removeComment($commentId) {
         $commentManager = new CommentManager();

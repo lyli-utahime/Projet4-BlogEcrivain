@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group contact-block1">
-                                    <textarea name="content" class="form-control" id="content" style="height: 200px;"><?= $post['content'];?></textarea>
+                                    <textarea name="content" class="form-control" id="post" style="height: 200px;"><?= $post['content'];?></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">

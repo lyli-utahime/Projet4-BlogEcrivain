@@ -71,7 +71,7 @@ class Frontend {
         if ($reported === false) {
             throw new Exception('impossible de signaler le commentaire !');
         } else {
-            header('Location: index.php?action=displayAdmin');
+            header('Location: index.php?action=post&id=' . $postId . '&report=success#comments');
         }
     }
 

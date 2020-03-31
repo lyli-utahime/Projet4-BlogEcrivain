@@ -35,6 +35,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- Editeur WYSIWYG by TinyMCE -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({selector:'textarea#post'});</script>
+
     <!-- =======================================================
         Theme Name: Folio
         Theme URL: https://bootstrapmade.com/folio-bootstrap-portfolio-template/

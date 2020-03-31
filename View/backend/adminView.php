@@ -32,7 +32,7 @@ $title = "Panneau d'administration"; ?>
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-offset-2 col-md-8 col-sm-12">
+        <div class="col-md-offset-1 col-md-9 col-sm-12">
             <div id=adminFrame>
 
                 <!-- bouton pour ajouter un billet -->
@@ -56,7 +56,6 @@ $title = "Panneau d'administration"; ?>
                         echo '<p id="success">L\'article a bien été supprimé !</p>';
                     }
 
-                    $countPost = 0;
                     foreach($posts as $post) {
                     ?>
 
@@ -67,9 +66,10 @@ $title = "Panneau d'administration"; ?>
                         <div class="contentPost">
                             <p><?= nl2br(htmlspecialchars($post['extract'])) ?></p>
                             <button class="btn"><a class="Manager" href="index.php?action=displayUpdate&amp;id=<?= $post['id']; ?>">Modifier l'article</a></button>
-                                <button class="btn"><a class="Manager" href="index.php?action=removePost&amp;id=<?= $post['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer cet article ?');">Supprimer l'article</a></button>
+                            <button class="btn"><a class="Manager" href="index.php?action=removePost&amp;id=<?= $post['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer cet article ?');">Supprimer l'article</a></button>
                             <a href="index.php?action=updatePost&amp;id=<?= $post['id']; ?>"></a>
-                            <em style="color:#000000;">le <?= $post['creation_date_fr'] ?></em>
+                            <em style="color:#000000;">le <?= $post['creation_date_fr'] ?></em><br /><br />
+                            <button class="btn"><a class="Manager" href="index.php?action=dispayRemoveComment&amp;id=<?= $post['id']; ?>">Modération des commentaires</a></button>
                         </div>
                     </div>
 
@@ -99,11 +99,7 @@ $title = "Panneau d'administration"; ?>
                 <!-- gestion des commentaires -->
                 <div id="commentManage">
                     <h3>Gestion des commentaires signalés</h3></br>
-                    <?php 
-                    if (isset($_GET['remove-comment']) &&  $_GET['remove-comment'] == 'success') {
-                        echo '<p id="success">Le commentaire a bien été supprimé !</p>';
-                    }
-
+                    <?php
                     while ($report = $reports->fetch()) {
                     ?>
                     <p style="color: #000; font-weight: 600;">Auteur du commentaire Sous le billet</p>
@@ -111,7 +107,7 @@ $title = "Panneau d'administration"; ?>
                     <div class="contentPost">
                         <p style="color: #000;"><?= $report['comment']; ?></p>
                     </div>
-                    <button class="btn"><a class="Manager" href="index.php?action=removeComment&amp;comment_id=<?= $comment['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');">Supprimer le commentaire ?</a></button>
+                    <button class="btn"><a class="Manager" href="index.php?action=removeComment&amp;comment_id=<?= $report['comment_id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');">Supprimer le commentaire ?</a></button>
                     <?php
                     }
                     $reports->closeCursor();
