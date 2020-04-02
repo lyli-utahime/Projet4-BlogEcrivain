@@ -29,7 +29,7 @@ class commentController {
         $postManager = new PostManager();
 
         $reported = $reportManager->postReports($_GET['comment_id']);
-        $post = $postManager->getPost($_GET['id']);
+        $post = $postManager->getPost($postId);
 
         if ($reported === false) {
             throw new Exception('impossible de signaler le commentaire !');
@@ -39,14 +39,14 @@ class commentController {
     }
 
 // afficher la liste des commentaires signalés
-    public function displayReportsComments() {
+    public function displayReportsComments($commendId, $author, $comment) {
         $commentManager = new CommentManager();
         $postManager = new PostManager();
 
-        $post = $postManager->getPost($_GET['id']);
-        $comments = $commentManager->getComments($_GET['id']);
-        $reported = $reportManager->insertReports($_GET['comment_id']);
-        $reports = $reportManager->getReports();
+        $post = $postManager->getPost($postId);
+        $comments = $commentManager->getComments($postId);
+        $reported = $reportManager->postReports($commentId);
+        $reports = $reportManager->insertReports($commendId, $author, $comment);
 
         require(__DIR__ . '/../View/backend/adminView.php');
     }
@@ -58,7 +58,6 @@ class commentController {
 
         $post = $postManager->getPost($_GET['id']);
         $comments = $commentManager->getComments($_GET['id']);
-        $deletedComment = $commentManager->deleteComment($_GET['comment_id']);
 
         require(__DIR__ . '/../View/backend/commentManage.php');
     }
@@ -67,7 +66,16 @@ class commentController {
     public function removeComment($commentId) {
         $commentManager = new CommentManager();
 
-        $deletedComment = $commentManager->deleteComment($_GET['comment_id']);
+        $deletedComment = $commentManager->deleteComment($commentId);
+
+        Header('Location: index.php?action=emoveComment&comment_id' . $postId);
+    }
+
+// pour supprimer un commentaire signalé
+    public function removeCommentReport($commentId) {
+        $commentManager = new CommentManager();
+
+        $deletedComment = $commentManager->deleteCommentReport($commentId);
 
         Header('Location: index.php?action=displayAdmin');
     }

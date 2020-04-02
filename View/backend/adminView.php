@@ -103,11 +103,11 @@ $title = "Panneau d'administration"; ?>
                     while ($report = $reports->fetch()) {
                     ?>
                     <p style="color: #000; font-weight: 600;">Auteur du commentaire Sous le billet</p>
-                    <p style="color: #b8a07c;"><?= $comment['author']; ?> <a href="index.php?action=post&amp;id=<?= $post['id'] ?>"><?= $post['title']; ?></a>
+                    <p style="color: #b8a07c;"><?= $report['author']; ?> <a href="index.php?action=post&amp;id=<?= $post['id'] ?>"><?= $post['title']; ?></a>
                     <div class="contentPost">
-                        <p style="color: #000;"><?= $report['comment_id']; ?><?= $comment['comment']; ?></p>
+                        <p style="color: #000;"><?= $report['comment_id']; ?><?= $report['comment']; ?></p>
                     </div>
-                    <button class="btn"><a class="Manager" href="index.php?action=removeComment&amp;comment_id=<?= $report['comment_id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');">Supprimer le commentaire ?</a></button>
+                    <button class="btn"><a class="Manager" href="index.php?action=removeCommentReport&amp;comment_id=<?= $report['comment_id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');">Supprimer le commentaire</a></button>
                     <?php
                     }
                     $reports->closeCursor();

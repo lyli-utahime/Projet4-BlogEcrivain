@@ -2,17 +2,17 @@
  
 session_start();
  
-require_once(__DIR__ . '/../Controller/frontend.php');
-require_once(__DIR__ . '/../Controller/postController.php');
-require_once(__DIR__ . '/../Controller/commentController.php');
-require_once(__DIR__ . '/../Controller/contactController.php');
-require_once(__DIR__ . '/../Controller/adminController.php');
+require_once(__DIR__ . '/../Controller/Frontend.php');
+require_once(__DIR__ . '/../Controller/PostController.php');
+require_once(__DIR__ . '/../Controller/CommentController.php');
+require_once(__DIR__ . '/../Controller/ContactController.php');
+require_once(__DIR__ . '/../Controller/AdminController.php');
 
-use Controller\frontend;
-use Controller\postController;
-use Controller\commentController;
-use Controller\contactController;
-use Controller\adminController;
+use Controller\Frontend;
+use Controller\PostController;
+use Controller\CommentController;
+use Controller\ContactController;
+use Controller\AdminController;
 
 $frontend = new Frontend();
 $postController = new PostController();
@@ -109,13 +109,16 @@ try {
             $postController->removePost($_GET['id']);
 // afficher la liste des commentaires signalés
         } elseif ($_GET['action'] === 'displayReportsComments') {
-            $commentController->displayReportsComments();
+            $commentController->displayReportsComments($_GET['id'], $_GET['author'], $_GET['comment']);
 // afficher la page de modération des commentaires
         } elseif ($_GET['action'] === 'dispayRemoveComment') {
             $commentController->dispayRemoveComment();
 // supprimer un commentaire
         } elseif ($_GET['action'] === 'removeComment') {
             $commentController->removeComment($_GET['comment_id']);
+// supprimer un commentaire signalé
+        } elseif ($_GET['action'] === 'removeCommentReport') {
+            $commentController->removeCommentReport($_GET['comment_id']);
         }
     } else {
         $frontend->listPosts();
