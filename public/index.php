@@ -5,19 +5,16 @@ session_start();
 require_once(__DIR__ . '/../Controller/Frontend.php');
 require_once(__DIR__ . '/../Controller/PostController.php');
 require_once(__DIR__ . '/../Controller/CommentController.php');
-require_once(__DIR__ . '/../Controller/ContactController.php');
 require_once(__DIR__ . '/../Controller/AdminController.php');
 
 use Controller\Frontend;
 use Controller\PostController;
 use Controller\CommentController;
-use Controller\ContactController;
 use Controller\AdminController;
 
 $frontend = new Frontend();
 $postController = new PostController();
 $commentController = new CommentController();
-$contactController = new ContactController();
 $adminController = new AdminController();
 
 try {
@@ -50,14 +47,6 @@ try {
 // signaler un commentaire
         } elseif ($_GET['action'] === 'postReport') {
             $commentController->postReport($_GET['comment_id']);
-// envoie du formulaire de contact
-        } else if ($_GET['action'] === 'sendContactForm') {
-            if(isset($_POST) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
-                extract($_POST);
-                if(!empty($name) && !empty($email) && !empty($message)) {
-                    $contactController->sendContactForm();
-                }
-            }
 // mentions légales
         } elseif ($_GET['action'] == 'mentionsLegales') {
         $frontend->mentionsLegales();
@@ -109,7 +98,7 @@ try {
             $postController->removePost($_GET['id']);
 // afficher la liste des commentaires signalés
         } elseif ($_GET['action'] === 'displayReportsComments') {
-            $commentController->displayReportsComments($_GET['id'], $_GET['author'], $_GET['comment']);
+            $commentController->displayReportsComments($_GET['id'], $_GET['comment_id'], $_GET['author'], $_GET['comment']);
 // afficher la page de modération des commentaires
         } elseif ($_GET['action'] === 'dispayRemoveComment') {
             $commentController->dispayRemoveComment();

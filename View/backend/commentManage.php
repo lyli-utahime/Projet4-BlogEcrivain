@@ -52,7 +52,7 @@
                                                 <p class="contentPost"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                                             </div>
 
-                                            <button class="btn"><a class="Manager" href="index.php?action=removeComment&amp;comment_id=<?= $comment['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');">Supprimer le commentaire</a></button>
+                                            <a class="btn" href="index.php?action=removeComment&amp;comment_id=<?= $comment['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');">Supprimer le commentaire</a>
                                         </div>
                                     </li>
 

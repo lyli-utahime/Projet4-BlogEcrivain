@@ -39,14 +39,14 @@ class commentController {
     }
 
 // afficher la liste des commentaires signalés
-    public function displayReportsComments($commendId, $author, $comment) {
+    public function displayReportsComments($postId, $commendId, $author, $comment) {
         $commentManager = new CommentManager();
         $postManager = new PostManager();
 
         $post = $postManager->getPost($postId);
         $comments = $commentManager->getComments($postId);
         $reported = $reportManager->postReports($commentId);
-        $reports = $reportManager->insertReports($commendId, $author, $comment);
+        $reportsJoin = $reportManager->insertReports($commendId, $author, $comment);
 
         require(__DIR__ . '/../View/backend/adminView.php');
     }
@@ -68,7 +68,7 @@ class commentController {
 
         $deletedComment = $commentManager->deleteComment($commentId);
 
-        Header('Location: index.php?action=emoveComment&comment_id' . $postId);
+        Header('Location: index.php?action=removeComment&comment_id' . $postId . '&report=success#comments');
     }
 
 // pour supprimer un commentaire signalé
