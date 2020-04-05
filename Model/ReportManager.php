@@ -23,13 +23,14 @@ class ReportManager extends Manager{
       // récupérer le contenu de la table comments à joindre dans la table reports
       // par la colonne commune id de comments et comment_id de reports
       $reportsJoin = $bdd->query('SELECT author, post_id, comment 
-      FROM comments LEFT JOIN reports
+      FROM comments INNER JOIN reports
       ON comments.id = reports.comment_id ORDER BY reports.id DESC');
       $reportsJoin = $req->execute(array($commendId, $author, $postId, $comment));
 
       return $reportsJoin;
     }
 
+    //afficher les commentaires signalés
     public function getReports() {
       $bdd = $this->dbConnect();
       $reports = $bdd->query('SELECT * FROM reports ORDER BY reports.id DESC');

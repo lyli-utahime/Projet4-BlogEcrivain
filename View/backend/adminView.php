@@ -46,8 +46,6 @@ $title = "Panneau d'administration"; ?>
                     <h2>Gestion des Articles</h2></br>
 
                     <?php
-                    }
-
                     foreach($posts as $post) {
                     ?>
 
@@ -91,13 +89,16 @@ $title = "Panneau d'administration"; ?>
                 <div id="commentManage">
                     <h3>Gestion des commentaires signalés</h3></br>
                     <?php
-                    while ($report = $reports->fetch()) {
+                    while ($comment = $comments->fetch()) {
                     ?>
                     <p style="color: #000; font-weight: 600;">Auteur du commentaire Sous le billet</p>
-                    <p style="color: #b8a07c;"><?= $report['author']; ?> <a href="index.php?action=post&amp;id=<?= $post['id'] ?>"><?= $post['title']; ?></a>
+                    <p style="color: #b8a07c;"><?= $comment['author']; ?> <a href="index.php?action=post&amp;id=<?= $post['id'] ?>"><?= $post['title']; ?></a>
                     <div class="contentPost">
-                        <p style="color: #000;"><?= $report['comment_id']; ?><?= $report['comment']; ?></p>
+                        <p style="color: #000;"><?= $comment['comment']; ?></p>
                     </div>
+                    <?php }
+                    while ($report = $reports->fetch()) {
+                    ?>
                     <a class="btn" href="index.php?action=removeCommentReport&amp;comment_id=<?= $report['comment_id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');">Supprimer le commentaire</a>
                     <?php
                     }

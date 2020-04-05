@@ -44,6 +44,7 @@ class adminController {
 
         $posts = $postManager->getPosts($cPage, $postsPerPage);
 
+        $comments = $commentManager->getComments($postId);
         $reports = $reportManager->getReports();
 
         require(__DIR__ . '/../View/backend/adminView.php');

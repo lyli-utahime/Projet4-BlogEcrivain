@@ -83,7 +83,7 @@ try {
             }
 // formulaire pour modifier un billet
         } elseif ($_GET['action'] === 'displayUpdate') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+            if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
                 if ('1' == isset($_SESSION)) {
                     $postController->displayUpdate();
                 }
