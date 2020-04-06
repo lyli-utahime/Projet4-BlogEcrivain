@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!-- start section navbar -->
 <nav id="main-nav">
     <div class="row">
@@ -33,7 +34,6 @@
                                 <!-- Affichage du Billet -->
                                 <div class="content-main single-post padDiv">
                                     <div class="post-meta">
-                                        <?php ob_start(); ?>
                                         
                                         <h2><?= htmlspecialchars($post['title']) ?></h2>
                                         <ul class="list-unstyled mb-0">
