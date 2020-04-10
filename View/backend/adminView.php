@@ -59,7 +59,11 @@ $title = "Panneau d'administration"; ?>
                         </div>
                             <a class="btn" href="index.php?action=displayUpdate&amp;id=<?= $post['id']; ?>">Modifier l'article</a>
                             <a class="btn" href="index.php?action=removePost&amp;id=<?= $post['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer cet article ?');">Supprimer l'article</a>
+<<<<<<< HEAD
                             <a class="btn" href="index.php?action=displayRemoveComment&amp;id=<?= $post['id']; ?>">Modération des commentaires</a>
+=======
+                            <a class="btn" href="index.php?action=dispayRemoveComment&amp;id=<?= $post['id']; ?>">Modération des commentaires</a>
+>>>>>>> 594511e6976b935722a049fa75c355eff89c43cd
                     </div>
 
                     <?php
@@ -90,10 +94,23 @@ $title = "Panneau d'administration"; ?>
                     <h3>Gestion des commentaires signalés</h3></br>
                     
                     <?php
+<<<<<<< HEAD
                     if (isset($_GET['removeComment']) && $_GET['removeComment'] == 'success') {
                         echo '<p id="success">Le commentaire a bien été supprimé.</p>';
                     }
                     foreach ($reports as $report) {
+=======
+                    foreach ($reports as $report) {
+                    ?>
+                    <div class="contentPost">
+                        <span style="color: #000; font-weight: 600;">Auteur du commentaire :</span> <span style="color: #b8a07c;"><?= $report['author']; ?></span><br />
+                        <span style="color: #000; font-weight: 600;">Sous le billet :</span> <?= $report['title']; ?>
+                        <p style="color: #000;"><?= $report['comment']; ?></p>
+                    </div>
+                    <a class="btn" href="index.php?action=removeComment&amp;id=<?= $report['comment_id']; ?>">Supprimer le commentaire</a>
+                    <?php
+                    }
+>>>>>>> 594511e6976b935722a049fa75c355eff89c43cd
                     ?>
 
                     <div class="block-main mb-30">
