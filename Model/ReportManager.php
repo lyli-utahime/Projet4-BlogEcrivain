@@ -9,24 +9,20 @@ class ReportManager extends Manager{
     // ajout de l'id du commentaire signalé dans la base de donnée "reports"
     public function postReports($commentId) {
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('INSERT INTO reports(comment_id) VALUES(?)');
-        $reported = $req->execute(array($commentId));
+        $req = $bdd->prepare("UPDATE comments SET report = '1' WHERE id =?");
 
-        return $reported;
+        return $req->execute(array($commentId));
     }
 
-    // faire une jointure des tables comments et reports pour pouvoir afficher les informations dans la rubrique administration
-    public function getReports() {
-      $bdd = $this->dbConnect();
-      // select les colonnes author et comment
-      // de la table comments
-      // récupérer le contenu de la table comments à joindre dans la table reports
-      // par la colonne commune id de comments et comment_id de reports
-      $reports = $bdd->query('SELECT author, post_id, comment 
-      FROM comments LEFT JOIN reports
-      ON comments.id = reports.comment_id ORDER BY reports.id DESC');
-
-      return $reports;
+    // faire une jointure des tables pour pouvoir afficher les informations dans l'administration
+    public function insertReports() {
+        $bdd = $this->dbConnect();
+        $req = $bdd->query("SELECT posts.title, comments.id, comments.author, comments.comment FROM comments
+        INNER JOIN posts ON comments.post_id = posts.id
+        WHERE comments.report = '1'
+        ORDER BY id DESC");
+        $req->execute(array());
+        
+        return $req->fetchAll();
     }
-
 }

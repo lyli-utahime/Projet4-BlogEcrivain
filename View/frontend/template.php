@@ -37,7 +37,7 @@
 
     <!-- Editeur WYSIWYG by TinyMCE -->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>tinymce.init({selector:'textarea#post'});</script>
+    <script>tinymce.init({selector:'textarea#post',height:'350px'});</script>
 
     <!-- =======================================================
         Theme Name: Folio
@@ -55,18 +55,27 @@
     <section id="footer" class="text-center">
         <div class="container">
 
-            <p>&copy; Copyrights Folio. All rights reserved.</br>
-            Faux blog dans le cadre d’une formation de développeur web junior.</br>
-            <a href="index.php?action=mentionsLegales">Mentions légales</a></p>
+            <div class="col-lg-12">
+                <div class="contact-contact">
+                    <h5>Contatez moi :</h5>
+                    <a href="mailto:example@example.com">example@example.com</a>
+                </div>
+                <br />
+                <div class="copyrights">
+                    <p>&copy; Copyrights Folio. All rights reserved.</br>
+                    Faux blog dans le cadre d’une formation de développeur web junior.</br>
+                    <a href="index.php?action=mentionsLegales">Mentions légales</a></p>
 
-            <div class="credits">
-            <!--
-                All the links in the footer should remain intact.
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Folio
-            -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    <div class="credits">
+                    <!--
+                        All the links in the footer should remain intact.
+                        You can delete the links only if you purchased the pro version.
+                        Licensing information: https://bootstrapmade.com/license/
+                        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Folio
+                    -->
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    </div>
+                </div>
             </div>
 
         </div>

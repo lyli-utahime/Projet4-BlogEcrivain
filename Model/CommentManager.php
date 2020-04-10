@@ -23,12 +23,20 @@ class CommentManager extends Manager {
         return $affectedLines;
     }
 
-    // supprimer un commentaire
-    public function deleteComment($commentId) {
-        $bdd = $this->dbConnect();
-        $req = $bdd->prepare('DELETE FROM reports WHERE comment_id = ?');
-        $deletedComment = $req->execute(array($commentId));
+// supprimer un commentaire
+public function deleteComment($commentId) {
+    $bdd = $this->dbConnect();
+    $req = $bdd->prepare('DELETE FROM comments WHERE id = ?');
 
-        return $deletedComment;
+    return $req->execute(array($commentId));
+}
+
+// supprimer un commentaire signalé
+    public function deleteCommentReport($commentId, $author) {
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare("DELETE FROM comments 
+        WHERE id= ? AND author = ?");
+
+        return $req->execute(array($commentId, $author));
     }
 }

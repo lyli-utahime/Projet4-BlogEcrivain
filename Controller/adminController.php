@@ -14,19 +14,24 @@ class adminController {
         require(__DIR__ . '/../View/frontend/loginAdmin.php');
     }
 
-    public function loginAdmin() {
-        if (isset($_POST['login']) && $_POST['login'] === "admin" && $_POST['pass'] === "test") {
-            header('Location: index.php?action=admin');
-        }
 
-        header('Location: index.php?action=displayAdmin&account-status=unsuccess-login');
+    public function loginAdmin() {
+        if (isset($_POST['login']) && isset($_POST['pass']) && $_POST['login'] === "admin" && $_POST['pass'] === "test") {
+            header('Location: index.php?action=displayAdmin');
+
+        }  else {
+            header('Location: index.php?action=displayLoginAdmin&account-status=unsuccess-login');
+        }
+        
     }
+
 
 // affichage du panneau d'administration
     public function displayAdmin() {
         $postManager = new PostManager(); 
         $pagination = new Pagination();
         $reportManager = new ReportManager();
+        $commentManager = new CommentManager();
 
         $postsPerPage = 4;
 
@@ -43,7 +48,7 @@ class adminController {
 
         $posts = $postManager->getPosts($cPage, $postsPerPage);
 
-        $reports = $reportManager->getReports();
+        $reports = $reportManager->insertReports();
 
         require(__DIR__ . '/../View/backend/adminView.php');
     }

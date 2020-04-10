@@ -43,8 +43,8 @@
                         <form action="index.php?action=loginAdmin" method="post">
                         <div class="col-lg-6">
                             <div class="form-group contact-block1">
-                                <label for="pseudo">Pseudo</label><br/>
-                                <input type="text" name="pseudo" id="pseudo" required />
+                                <label for="login">Pseudo</label><br/>
+                                <input type="text" name="login" id="login" required />
                             </div>
                         </div>
                         <div class="col-lg-6">

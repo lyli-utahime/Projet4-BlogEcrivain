@@ -138,8 +138,6 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'success') {
 </section>
 <!-- End section journal -->
 
-<?php require_once('contact.php'); ?>
-
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

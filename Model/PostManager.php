@@ -10,9 +10,8 @@ class PostManager extends Manager {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare("SELECT id, title, extract, DATE_FORMAT(creation_date, '%d/%m/%Y %H:%i:%s') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT $cPage, $postsPerPage");
         $req->execute(array());
-        $allPosts = $req->fetchAll();
 
-        return $allPosts;
+        return $req->fetchAll();
     }
 
     // page post : afficher un seul billet
@@ -20,18 +19,16 @@ class PostManager extends Manager {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
-        $post = $req->fetch();
 
-        return $post;
+        return $req->fetch();
     }
 
     // créer un billet
         public function createPost($title, $extract, $content) {
             $bdd = $this->dbConnect();
             $req = $bdd->prepare('INSERT INTO posts(title, extract, content, creation_date) VALUES (?, ?, ?, NOW())');
-            $newPost = $req->execute(array($title, $extract, $content));
-    
-            return $newPost;
+
+            return $req->execute(array($title, $extract, $content));
         }
 
     // page : modifier un billet, afficher le billet
@@ -39,26 +36,23 @@ class PostManager extends Manager {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('SELECT id, title, extract, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
-        $post = $req->fetch();
 
-        return $post;
+        return $req->fetch();
     }
 
     // modifier un billet
     public function updatePost($title, $extract, $content, $postId) {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('UPDATE posts SET title = ?, extract = ?, content = ?, creation_date = NOW() WHERE id = ?');
-        $updated = $req->execute(array($title, $extract, $content, $postId));
 
-        return $updated;
+        return $req->execute(array($title, $extract, $content, $postId));
     }
 
     // supprimer un billet
     public function deletePost($postId) {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('DELETE FROM posts WHERE id = ?');
-        $deletedPost = $req->execute(array($postId));
 
-        return $deletedPost;
+        return $req->execute(array($postId));
     }
 }

@@ -56,6 +56,11 @@
                                         if (isset($_GET['report']) && $_GET['report'] == 'success') {
                                             echo '<p id="success">Le commentaire a bien été signalé.</p>';
                                         }
+
+                                        if (isset($_GET['addComment']) && $_GET['addComment'] == 'success') {
+                                            echo '<p id="success">Le commentaire a bien été ajouté.</p>';
+                                        }
+
                                         while ($comment = $comments->fetch())
                                         { ?>
                                         <li>
@@ -65,7 +70,7 @@
                                                     <span><a href="#"><?= $comment['comment_date_fr'] ?></a></span>
                                                     <p class="contentPost"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                                                 </div>
-                                                <a href="index.php?action=postReport&amp;comment_id=<?= $comment['id'] ?>&amp;id=<?= $post['id'] ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?'));"><i class="fas fa-exclamation-triangle"></i> Signaler</a></p>
+                                                <a href="index.php?action=postReport&amp;id=<?= $post['id'] ?>&amp;comment_id=<?= $comment['id'] ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?'));"><i class="fas fa-exclamation-triangle"></i> Signaler</a></p>
                                             </div>
                                         </li>
 

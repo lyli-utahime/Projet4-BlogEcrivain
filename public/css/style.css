@@ -123,7 +123,7 @@ p {
 
 .btn:hover,
 .btn:focus {
-    color: #fff;
+    color: #b8a07c;
 }
 
 .padDiv {
@@ -429,7 +429,7 @@ nav ul li a {
 }
 
 .contentPost {
-    padding: 10px 10px 60px 10px;
+    padding: 10px 10px 40px 10px;
     background: #f7f7f7;
 }
 
@@ -501,45 +501,6 @@ nav ul li a {
     padding-bottom: 50px;
 }
 
-#footer .socials-media {
-    width: 100%;
-}
-
-#footer .socials-media ul {
-    display: inline-block;
-    float: none;
-    margin: 0 0 20px 0;
-}
-
-#footer .socials-media ul li {
-    float: left;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-#footer .socials-media ul li a {
-    font-size: 24px;
-    color: #999;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    background: transparent;
-    text-transform: uppercase;
-    -moz-transition: all 0.5s ease-in-out 0s;
-    -ms-transition: all 0.5s ease-in-out 0s;
-    -o-transition: all 0.5s ease-in-out 0s;
-    -webkit-transition: all 0.5s ease-in-out 0s;
-    transition: all 0.5s ease-in-out 0s;
-}
-
-#footer .socials-media ul li a:hover {
-    color: #b8a07e;
-    -moz-transition: all 0.5s ease-in-out 0s;
-    -ms-transition: all 0.5s ease-in-out 0s;
-    -o-transition: all 0.5s ease-in-out 0s;
-    -webkit-transition: all 0.5s ease-in-out 0s;
-    transition: all 0.5s ease-in-out 0s;
-}
-
 #footer p {
     font-size: 12px;
     letter-spacing: 0.1em;
@@ -548,7 +509,7 @@ nav ul li a {
     text-transform: uppercase;
 }
 
-.credits {
+.credits .copyrights {
     font-size: 13px;
 }
 
@@ -570,18 +531,8 @@ nav ul li a {
     padding-bottom: 20px;
 }
 
-.Manager {
-    background: #333;
-    color: #fff;
-}
-
-.Manager:hover,
-.Manager:focus {
-    color: #b8a07c;
-}
-
 #postManage,
-#commentManage {
+#removeComment {
     background-color: #ffffff;
     padding: 20px;
 }
