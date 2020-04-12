@@ -71,20 +71,7 @@ public function removeComment($commentId) {
     public function removeCommentReport($commentId, $author) {
         $commentManager = new CommentManager();
 
-<<<<<<< HEAD
         $deletedComment = $commentManager->deleteCommentReport($commentId, $author);
-=======
-        $deletedComment = $commentManager->deleteComment($commentId);
-
-        Header('Location: index.php?action=removeComment&comment_id' . $postId . '&report=success#comments');
-    }
-
-// pour supprimer un commentaire signalé
-    public function removeCommentReport($commentId) {
-        $commentManager = new CommentManager();
-
-        $deletedComment = $commentManager->deleteCommentReport($commentId);
->>>>>>> 594511e6976b935722a049fa75c355eff89c43cd
 
         Header('Location: index.php?action=displayAdmin&removeComment=success#commentManage');
     }

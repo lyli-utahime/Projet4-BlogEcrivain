@@ -14,11 +14,6 @@ class adminController {
         require(__DIR__ . '/../View/frontend/loginAdmin.php');
     }
 
-<<<<<<< HEAD
-
-=======
-    //(isset($_POST['login']) && isset($_POST['login']) && $_POST['login'] === "admin" && $_POST['pass'] === "test"
->>>>>>> 594511e6976b935722a049fa75c355eff89c43cd
     public function loginAdmin() {
         if (isset($_POST['login']) && isset($_POST['pass']) && $_POST['login'] === "admin" && $_POST['pass'] === "test") {
             header('Location: index.php?action=displayAdmin');

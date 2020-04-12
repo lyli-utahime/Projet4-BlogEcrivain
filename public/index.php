@@ -105,22 +105,14 @@ try {
         } elseif ($_GET['action'] === 'displayReportsComments') {
             $commentController->displayReportsComments($_GET['comment_id'], $_GET['author'], $_GET['id'], $_GET['comment']);
 // afficher la page de modération des commentaires
-<<<<<<< HEAD
         } elseif ($_GET['action'] === 'displayRemoveComment') {
-=======
-        } elseif ($_GET['action'] === 'dispayRemoveComment') {
->>>>>>> 594511e6976b935722a049fa75c355eff89c43cd
             $commentController->displayRemoveComment();
 // supprimer un commentaire
         } elseif ($_GET['action'] === 'removeComment') {
             $commentController->removeComment($_GET['comment_id']);
 // supprimer un commentaire signalé
         } elseif ($_GET['action'] === 'removeCommentReport') {
-<<<<<<< HEAD
-            $commentController->removeCommentReport($_GET['id'], $_GET['author']);
-=======
-            $commentController->removeCommentReport($_GET['comment_id']);
->>>>>>> 594511e6976b935722a049fa75c355eff89c43cd
+            $commentController->removeCommentReport($_GET['comment_id'], $_GET['author']);
         }
     } else {
         $frontend->listPosts();

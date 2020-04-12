@@ -91,9 +91,6 @@
     <script src="../public/lib/magnific-popup/magnific-popup.min.js"></script>
     <script src="../public/lib/isotope/isotope.pkgd.min.js"></script>
 
-    <!-- Contact Form JavaScript File -->
-    <script src="../public/contactform/contactform.js"></script> -->
-
     <!-- Template Main Javascript File -->
     <script src="../public/js/main.js"></script>
 
