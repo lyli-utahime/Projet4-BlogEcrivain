@@ -31,6 +31,8 @@ class PostController {
     public function displayUpdate() {
         $postManager = new PostManager();
 
+        $postId = (int) $_GET['id'];
+
         $post = $postManager->getPostUpdate($_GET['id']);
         require(__DIR__ . '/../View/backend/updatePost.php');
     }

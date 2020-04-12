@@ -15,7 +15,8 @@ class adminController {
     }
 
     public function loginAdmin() {
-        if (isset($_POST['login']) && isset($_POST['pass']) && $_POST['login'] === "admin" && $_POST['pass'] === "test") {
+        $pass = '$2y$12$0MzIRzJG56zpUm89GKlPcOhCcDMI5CV46bcrJazU4N4PVSgeQaIQq';
+        if (isset($_POST['login']) && isset($_POST['pass']) && $_POST['login'] === "admin" && password_verify($_POST['pass'], $pass)) {
             header('Location: index.php?action=displayAdmin');
 
         }  else {
