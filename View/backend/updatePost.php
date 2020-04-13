@@ -21,12 +21,12 @@
 
                                 <div class="col-lg-12">
                                     <div class="form-group contact-block1">
-                                    <input type="text" name="title" class="form-control" id="title" value="<?= $post['title'];?>" />
+                                    <input type="text" name="title" class="form-control" id="title" required  value="<?= $post['title'];?>" />
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group contact-block1">
-                                    <textarea name="extract" class="form-control" id="extract" style="height: 100px;"><?= $post['extract'];?></textarea>
+                                    <textarea name="extract" class="form-control" id="extract" style="height: 100px;" required><?= $post['extract'];?></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="submit" class="btn" value="Modifier l'article" style="width: 100%;" />
+                                    <input type="submit" name="submit" class="btn" value="Modifier l'article" style="width: 100%;" />
                                     </div>
                                 </div>
 

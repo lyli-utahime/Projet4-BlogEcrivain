@@ -17,9 +17,6 @@ $postController = new PostController();
 $commentController = new CommentController();
 $adminController = new AdminController();
 
-//filter()
-//$getClean = filter$GET
-
 try {
     if (isset($_GET['action'])) {
 
@@ -40,7 +37,7 @@ try {
         } elseif ($_GET['action'] === 'addComment') {
             if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    $commentController->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                    $commentController->addComment( (int) $_GET['id'], $_POST['author'], $_POST['comment']);
                 } else {
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
@@ -97,13 +94,13 @@ try {
             }
 // modifier un billet
         } elseif ($_GET['action'] === 'submitUpdate') {
-            $postController->submitUpdate($_POST['title'], $_POST['extract'], $_POST['content'], $_GET['id']);
+            $postController->submitUpdate($_POST['title'], $_POST['extract'], $_POST['content'], (int) $_GET['id']);
 // supprimer un billet
         } elseif ($_GET['action'] === 'removePost') {
             $postController->removePost($_GET['id']);
 // afficher la liste des commentaires signalés
         } elseif ($_GET['action'] === 'displayReportsComments') {
-            $commentController->displayReportsComments($_GET['comment_id'], $_GET['author'], $_GET['id'], $_GET['comment']);
+            $commentController->displayReportsComments($_GET['comment_id'], $_GET['author'], (int) $_GET['id'], $_GET['comment']);
 // afficher la page de modération des commentaires
         } elseif ($_GET['action'] === 'displayRemoveComment') {
             $commentController->displayRemoveComment();
@@ -118,5 +115,5 @@ try {
         $frontend->listPosts();
     }
 } catch(Exception $e) {
-    echo 'Erreur : ' . $e->getMessage();
+    $frontend->erreur404($e);
 }

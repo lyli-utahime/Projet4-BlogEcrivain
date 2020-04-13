@@ -24,7 +24,7 @@ class PostController {
 
         $newPost = $postManager->createPost($title, $extract, $content);
 
-        Header('Location: index.php?action=displayAdmin&newPost=success');
+        header('Location: index.php?action=displayAdmin&newPost=success');
     }
 
 // pour modifier un billet
@@ -42,7 +42,7 @@ class PostController {
 
         $updated = $postManager->updatePost($title, $extract, $content, $postId);
 
-        Header('Location: index.php?action=displayAdmin&submitUpdate=success');
+        header('Location: index.php?action=displayAdmin&submitUpdate=success');
     }
 
 // pour supprimer un billet
@@ -51,6 +51,6 @@ class PostController {
 
         $deletedPost = $postManager->deletePost($postId);
 
-        Header('Location: index.php?action=displayAdmin');
+        header('Location: index.php?action=displayAdmin');
     }
 }

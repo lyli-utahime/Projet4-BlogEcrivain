@@ -27,11 +27,13 @@ class Frontend {
         if (!isset($_GET['page'])) {
             $cPage = 1;
         } else {
-        if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
-        $cPage = (intval($_GET['page']) - 1) * $postsPerPage;
+            if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
+                $cPage = (intval($_GET['page']) - 1) * $postsPerPage;
+            } else {
+                header('Location: index.php?action=erreur404');
             }
         }
-        
+
         $posts = $postManager->getPosts($cPage, $postsPerPage);
 
         require(__DIR__ . '/../View/frontend/home.php');
@@ -53,5 +55,10 @@ class Frontend {
 // mentions légales
     public function mentionsLegales() {
         require(__DIR__ . '/../View/frontend/mentionslegales.php');
+    }
+
+// page 404
+    public function erreur404($e) {
+        require(__DIR__ . '/../View/frontend/erreur404.php');
     }
 }

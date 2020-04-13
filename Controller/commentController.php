@@ -52,8 +52,10 @@ class commentController {
         $postManager = new PostManager();
         $commentManager = new CommentManager();
 
-        $post = $postManager->getPost($_GET['id']);
-        $comments = $commentManager->getComments($_GET['id']);
+        $postId = (int) $_GET['id'];
+
+        $post = $postManager->getPost($postId);
+        $comments = $commentManager->getComments($postId);
 
         require(__DIR__ . '/../View/backend/commentManage.php');
     }

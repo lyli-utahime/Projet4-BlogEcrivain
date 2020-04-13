@@ -15,17 +15,17 @@
 
                                 <div class="col-lg-12">
                                     <div class="form-group contact-block1">
-                                    <input type="text" name="title" class="form-control" id="title" placeholder="VOTRE TITRE" size="80" />
+                                    <input type="text" name="title" class="form-control" id="title" placeholder="VOTRE TITRE" size="80" required />
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group contact-block1">
-                                    <input type="date" name="creation_date" class="form-control" id="creation_date">
+                                    <input type="date" name="creation_date" class="form-control" required >
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group contact-block1">
-                                    <textarea name="extract" class="form-control" id="extract" placeholder="EXTRAIT DE L'ARTICLE" style="height: 100px;"></textarea>
+                                    <textarea name="extract" class="form-control" id="extract" placeholder="EXTRAIT DE L'ARTICLE" style="height: 100px;"required ></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
