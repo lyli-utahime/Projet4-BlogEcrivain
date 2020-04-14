@@ -88,17 +88,17 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'success') {
                     <!-- Images avant liste des derniers posts -->
                     <div class="col-lg-4 col-md-6">
                         <div class="journal-info">
-                        <a href="blog-single.html"><img src="../public/images/blog-post-1.jpg" class="img-responsive" alt="img"></a>
+                            <img src="../public/images/blog-post-1.jpg" class="img-responsive" alt="img">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="journal-info">
-                        <a href="blog-single.html"><img src="../public/images/blog-post-2.jpg" class="img-responsive" alt="img"></a>
+                            <img src="../public/images/blog-post-2.jpg" class="img-responsive" alt="img">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="journal-info">
-                        <a href="blog-single.html"><img src="../public/images/blog-post-3.jpg" class="img-responsive" alt="img"></a>
+                            <img src="../public/images/blog-post-3.jpg" class="img-responsive" alt="img">
                         </div>
                     </div>
                 </div>

@@ -17,27 +17,47 @@ $postController = new PostController();
 $commentController = new CommentController();
 $adminController = new AdminController();
 
+//var_dump($_POST);
+$argsGet = array(
+    "action" => FILTER_SANITIZE_STRING,
+    //"action" => FILTER_SANITIZE_NUMBER_INT,
+    //"action" => FILTER_VALIDATE_INT,
+    "id" => FILTER_VALIDATE_INT,
+    "comment_id" => FILTER_VALIDATE_INT,
+    "author" => FILTER_SANITIZE_STRING,
+    "comment" => FILTER_SANITIZE_STRING,
+);
+$getClean = filter_var_array($_GET, $argsGet);
+$argsPost = array(
+    "extract" => FILTER_SANITIZE_STRING,
+    "title" => FILTER_SANITIZE_STRING,
+    "extract" => FILTER_SANITIZE_STRING,
+    "content" => FILTER_SANITIZE_STRING,
+);
+$postClean = filter_var_array($_POST, $argsPost);
+//var_dump($postClean);
+
 try {
-    if (isset($_GET['action'])) {
+    if (isset($getClean['action'])) {
 
 /**---------------------------------------------------------------------------*
 *-----------------------blog visible pour tous--------------------------------*
 *-----------------------------------------------------------------------------*/
 // affichage des billets en page d'accueil
-        if ($_GET['action'] === 'listPosts') {
+        if ($getClean['action'] === 'listPosts') {
             $frontend->listPosts();
 // affichage d'un seul billet et les commentaires
-        } elseif ($_GET['action'] === 'post') {
-            if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
+        } elseif ($getClean['action'] === 'post') {
+            if (isset($getClean['id']) && $getClean['id'] > 0) {
                 $frontend->post();
             } else {
                 throw new Exception('Aucun billet envoyé');
             }
 // ajouter un commentaire
-        } elseif ($_GET['action'] === 'addComment') {
-            if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
-                if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    $commentController->addComment( (int) $_GET['id'], $_POST['author'], $_POST['comment']);
+        } elseif ($getClean['action'] === 'addComment') {
+            if (isset($getClean['id']) && $getClean['id'] > 0) {
+                if (!empty($_POST['author']) && !empty($postClean['comment'])) {
+                    $commentController->addComment($getClean['id'], $postClean['author'], $postClean['comment']);
                 } else {
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
@@ -45,23 +65,23 @@ try {
                 throw new Exception("Impossible d'envoyer le formulaire");
             }
 // signaler un commentaire
-        } elseif ($_GET['action'] === 'postReport') {
-            $commentController->postReport($_GET['comment_id']);
+        } elseif ($getClean['action'] === 'postReport') {
+            $commentController->postReport($getClean['comment_id']);
 // mentions légales
-        } elseif ($_GET['action'] == 'mentionsLegales') {
+        } elseif ($getClean['action'] == 'mentionsLegales') {
         $frontend->mentionsLegales();
 
 /**---------------------------------------------------------------------------*
 *--------------------------------connexion------------------------------------*
 *-----------------------------------------------------------------------------*/
 // lien vers formulaire de connexion
-        } elseif ($_GET['action'] === 'displayLoginAdmin') {
+        } elseif ($getClean['action'] === 'displayLoginAdmin') {
             $adminController->displayLoginAdmin();
 // lien vers le formulaire
-        } elseif ($_GET['action'] === 'loginAdmin') {
+        } elseif ($getClean['action'] === 'loginAdmin') {
             $adminController->loginAdmin();
 // lien vers administration
-        } elseif ($_GET['action'] === 'displayAdmin' && isset($_SESSION)) {
+        } elseif ($getClean['action'] === 'displayAdmin' && isset($_SESSION)) {
             $adminController->displayAdmin();
 
 
@@ -70,22 +90,22 @@ try {
 *-----------------------------------------------------------------------------*/
 
 // formulaire pour créer un billet
-        } elseif ($_GET['action'] === 'create') {
+        } elseif ($getClean['action'] === 'create') {
             if (isset($_SESSION)) {
                 $postController->create();
             } else {
                 throw new Exception('Administrateur non identifié');
             }
 // ajouter un billet
-        } elseif ($_GET['action'] === 'newPost') {
-            if (!empty($_POST['title']) && !empty($_POST['extract']) && !empty($_POST['content'])) {
-                $postController->newPost($_POST['title'], $_POST['extract'], $_POST['content']);
+        } elseif ($getClean['action'] === 'newPost') {
+            if (!empty($postClean['title']) && !empty($postClean['extract']) && !empty($postClean['content'])) {
+                $postController->newPost($postClean['title'], $postClean['extract'], $postClean['content']);
             } else {
                 throw new Exception('Contenu vide !');
             }
 // formulaire pour modifier un billet
-        } elseif ($_GET['action'] === 'displayUpdate') {
-            if (isset($_GET['id']) && (int) $_GET['id'] > 0) {
+        } elseif ($getClean['action'] === 'displayUpdate') {
+            if (isset($getClean['id']) && $getClean['id'] > 0) {
                 if ('1' == isset($_SESSION)) {
                     $postController->displayUpdate();
                 }
@@ -93,23 +113,23 @@ try {
                 throw new Exception('Administrateur non identifié');
             }
 // modifier un billet
-        } elseif ($_GET['action'] === 'submitUpdate') {
-            $postController->submitUpdate($_POST['title'], $_POST['extract'], $_POST['content'], (int) $_GET['id']);
+        } elseif ($getClean['action'] === 'submitUpdate') {
+            $postController->submitUpdate($postClean['title'], $postClean['extract'], $postClean['content'], $getClean['id']);
 // supprimer un billet
         } elseif ($_GET['action'] === 'removePost') {
-            $postController->removePost($_GET['id']);
+            $postController->removePost($getClean['id']);
 // afficher la liste des commentaires signalés
-        } elseif ($_GET['action'] === 'displayReportsComments') {
-            $commentController->displayReportsComments($_GET['comment_id'], $_GET['author'], (int) $_GET['id'], $_GET['comment']);
+        } elseif ($getClean['action'] === 'displayReportsComments') {
+            $commentController->displayReportsComments($getClean['comment_id'], $getClean['author'], $getClean['id'], $getClean['comment']);
 // afficher la page de modération des commentaires
-        } elseif ($_GET['action'] === 'displayRemoveComment') {
+        } elseif ($getClean['action'] === 'displayRemoveComment') {
             $commentController->displayRemoveComment();
 // supprimer un commentaire
-        } elseif ($_GET['action'] === 'removeComment') {
-            $commentController->removeComment($_GET['comment_id']);
+        } elseif ($getClean['action'] === 'removeComment') {
+            $commentController->removeComment($getClean['comment_id']);
 // supprimer un commentaire signalé
-        } elseif ($_GET['action'] === 'removeCommentReport') {
-            $commentController->removeCommentReport($_GET['comment_id'], $_GET['author']);
+        } elseif ($getClean['action'] === 'removeCommentReport') {
+            $commentController->removeCommentReport($getClean['comment_id'], $getClean['author']);
         }
     } else {
         $frontend->listPosts();

@@ -42,8 +42,6 @@ class adminController {
         } else {
             if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
                 $cPage = (intval($_GET['page']) - 1) * $postsPerPage;
-            } else {
-                header('Location: index.php?action=erreur404');
             }
         }
 

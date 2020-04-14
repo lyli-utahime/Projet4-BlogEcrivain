@@ -4,16 +4,26 @@ $title = "Billet simple pour l'Alaska";
 
 ob_start(); ?>
 
-<title>404 HTML Template by Colorlib</title>
+<title>Erreur</title>
 
 <!-- start section erreur404 -->
+<section class="paddsection">
+    
 <section id="notfound">
-    <div class="notfound">
-        <div class="notfound-404">
-            <h1>4<span>0</span>4</h1>
+    <div class="container text-center">
+        <div class="section-title text-center">
+            <div class="row">
+                <div class="offset-md-2 col-md-8">
+                    <div class="notfound">
+                        <div class="notfound-404">
+                            <h1>4<span>0</span>4</h1>
+                        </div>
+                        <h2>Cette page n'éxiste pas</h2>
+                        <p class="returnLink"><a href="index.php?listPosts">Retour sur le blog</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h2>Cette page n'éxiste pas</h2>
-        <p class="returnLink"><a href="index.php?listPosts">Retour sur le blog</a></p>
     </div>
 </section>
 <!-- end section erreur404 -->

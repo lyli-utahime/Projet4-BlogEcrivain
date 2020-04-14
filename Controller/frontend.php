@@ -29,8 +29,6 @@ class Frontend {
         } else {
             if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
                 $cPage = (intval($_GET['page']) - 1) * $postsPerPage;
-            } else {
-                header('Location: index.php?action=erreur404');
             }
         }
 
@@ -43,11 +41,17 @@ class Frontend {
     public function post() {
         $postManager = new PostManager();
         $commentManager = new CommentManager();
-        
-        $postId = (int) $_GET['id'];
+
+        $postId = $_GET['id'];
 
         $post = $postManager->getPost($postId);
         $comments = $commentManager->getComments($postId);
+
+//      $nbPosts = $pagination->getPostsPagination();
+
+//      if $getClean['id'] > $nbPosts {
+//      boolean = false; (erreur 404)
+//}
 
         require(__DIR__ . '/../View/frontend/postView.php');
     }
@@ -59,6 +63,7 @@ class Frontend {
 
 // page 404
     public function erreur404($e) {
+        var_dump($e);
         require(__DIR__ . '/../View/frontend/erreur404.php');
     }
 }

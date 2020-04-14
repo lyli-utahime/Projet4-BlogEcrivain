@@ -18,7 +18,6 @@
 
     <!-- Libraries CSS Files -->
     <link href="../public/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="../public/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="../public/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
     <link href="../public/lib/hover/hover.min.css" rel="stylesheet">
 
@@ -28,6 +27,9 @@
     <!-- Responsive css -->
     <link href="../public/css/responsive.css" rel="stylesheet">
 
+    <!-- Page 404 css -->
+    <link href="../public/css/style.css" rel="stylesheet">
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="../public/images/favicon.png">
 
@@ -36,13 +38,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Editeur WYSIWYG by TinyMCE -->
-    <script src="https://cdn.tiny.cloud/1/inekcxyzslofyktvq7m7banm4nhcpp2khj80abpk5xcs9yah/tinymce/5/tinymce.min.js" referrerpolicy="origin"/></script>
-    <!--<script src="../public/js/tinymce.js"></script>-->
-    <script>tinymce.init({selector:'textarea#post', plugins: 'a11ychecker casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-      toolbar: 'a11ycheck addcomment showcomments casechange checklist formatpainter pageembed permanentpen table',
-      toolbar_mode: 'floating',
-      tinycomments_mode: 'embedded',
-      tinycomments_author: 'Author name',});</script>
+    <script src="https://cdn.tiny.cloud/1/inekcxyzslofyktvq7m7banm4nhcpp2khj80abpk5xcs9yah/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({
+        selector:'textarea#post', 
+        entity_encoding : "raw", 
+        plugins: 'a11ychecker casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinymcespellchecker',
+        toolbar: 'styleselect | bold italic | alignleft aligncenter alignright alignjustify | forecolor backcolor emoticons | casechange pageembeed table insertfile undo redo | checklist bullist numlist outdent indent | link image | print preview media fullpage',
+        toolbar_mode: 'floating',
+        style_formats: [
+        {title: 'Titre 1', block: 'h1', styles: {color: '#b8a07e'}},
+        {title: 'Titre 2', block: 'h2', styles: {color: '#b8a07e'}},
+        {title: 'Titre 3', block: 'h3', styles: {color: '#b8a07e'}},
+        {title: 'Titre 4', block: 'h4', styles: {color: '#b8a07e'}},
+        {title: 'Titre 5', block: 'h5', styles: {color: '#b8a07e'}},
+        {title: 'Titre 6', block: 'h6', styles: {color: '#b8a07e'}},
+        {title: 'Paragraphe', inline: 'p', styles: {color: '#898989'}}],
+        });</script>
 
     <!-- =======================================================
         Theme Name: Folio
@@ -92,7 +103,6 @@
     <script src="../public/lib/jquery/jquery-migrate.min.js"></script>
     <script src="../public/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../public/lib/typed/typed.js"></script>
-    <script src="../public/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="../public/lib/magnific-popup/magnific-popup.min.js"></script>
     <script src="../public/lib/isotope/isotope.pkgd.min.js"></script>
 
