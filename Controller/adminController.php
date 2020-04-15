@@ -36,13 +36,10 @@ class adminController {
 
         $nbPosts = $pagination->getPostsPagination();
         $nbPage = $pagination->getPostsPages($nbPosts, $postsPerPage);
+        $cPage = 1;
 
-        if (!isset($_GET['page'])) {
-            $cPage = 1;
-        } else {
-            if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
-                $cPage = (intval($_GET['page']) - 1) * $postsPerPage;
-            }
+        if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
+            $cPage = (intval($_GET['page']) - 1) * $postsPerPage;
         }
 
         $posts = $postManager->getPosts($cPage, $postsPerPage);

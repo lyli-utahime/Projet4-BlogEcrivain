@@ -7,35 +7,34 @@ require_once(__DIR__ . '/../Controller/PostController.php');
 require_once(__DIR__ . '/../Controller/CommentController.php');
 require_once(__DIR__ . '/../Controller/AdminController.php');
 
+// chargement des classes
 use Controller\Frontend;
 use Controller\PostController;
 use Controller\CommentController;
 use Controller\AdminController;
 
-$frontend = new Frontend();
-$postController = new PostController();
-$commentController = new CommentController();
-$adminController = new AdminController();
-
-//var_dump($_POST);
+// Filtres pour les $_GET
 $argsGet = array(
     "action" => FILTER_SANITIZE_STRING,
-    //"action" => FILTER_SANITIZE_NUMBER_INT,
-    //"action" => FILTER_VALIDATE_INT,
-    "id" => FILTER_VALIDATE_INT,
+    "id" => FILTER_VALIDATE_BOOLEAN,
     "comment_id" => FILTER_VALIDATE_INT,
     "author" => FILTER_SANITIZE_STRING,
     "comment" => FILTER_SANITIZE_STRING,
 );
 $getClean = filter_var_array($_GET, $argsGet);
+
+// Filtres pour les $_POST
 $argsPost = array(
-    "extract" => FILTER_SANITIZE_STRING,
-    "title" => FILTER_SANITIZE_STRING,
-    "extract" => FILTER_SANITIZE_STRING,
-    "content" => FILTER_SANITIZE_STRING,
+    "title" => FILTER_SANITIZE_URL,
+    "extract" => FILTER_SANITIZE_SPECIAL_CHARS,
+    "content" => FILTER_SANITIZE_SPECIAL_CHARS,
 );
 $postClean = filter_var_array($_POST, $argsPost);
-//var_dump($postClean);
+
+$frontend = new Frontend();
+$postController = new PostController();
+$commentController = new CommentController();
+$adminController = new AdminController();
 
 try {
     if (isset($getClean['action'])) {

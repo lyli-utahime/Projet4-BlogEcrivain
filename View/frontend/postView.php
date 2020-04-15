@@ -35,7 +35,7 @@
                                     <div class="post-meta">
                                         <?php ob_start(); ?>
                                         
-                                        <h2><?= htmlspecialchars($post['title']) ?></h2>
+                                        <h2><?= ($post['title']) ?></h2>
                                         <ul class="list-unstyled mb-0">
 
                                         <li class="date">date : le <?= $post['creation_date_fr'] ?></li>

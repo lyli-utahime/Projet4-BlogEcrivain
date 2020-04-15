@@ -23,13 +23,10 @@ class Frontend {
 
         $nbPosts = $pagination->getPostsPagination();
         $nbPage = $pagination->getPostsPages($nbPosts, $postsPerPage);
+        $cPage = 1;
 
-        if (!isset($_GET['page'])) {
-            $cPage = 1;
-        } else {
-            if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
-                $cPage = (intval($_GET['page']) - 1) * $postsPerPage;
-            }
+        if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
+            $cPage = (intval($_GET['page']) - 1) * $postsPerPage;
         }
 
         $posts = $postManager->getPosts($cPage, $postsPerPage);
@@ -47,12 +44,6 @@ class Frontend {
         $post = $postManager->getPost($postId);
         $comments = $commentManager->getComments($postId);
 
-//      $nbPosts = $pagination->getPostsPagination();
-
-//      if $getClean['id'] > $nbPosts {
-//      boolean = false; (erreur 404)
-//}
-
         require(__DIR__ . '/../View/frontend/postView.php');
     }
 
@@ -63,7 +54,6 @@ class Frontend {
 
 // page 404
     public function erreur404($e) {
-        var_dump($e);
         require(__DIR__ . '/../View/frontend/erreur404.php');
     }
 }
