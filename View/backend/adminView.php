@@ -102,7 +102,7 @@ $title = "Panneau d'administration"; ?>
                             <span style="color: #000; font-weight: 600;">Sous le billet :</span> <?= $report['title']; ?>
                             <p style="color: #000;"><?= $report['comment']; ?></p>
                         </div>
-                        <a class="btn" href="index.php?action=removeCommentReport&amp;id=<?= $report['id']; ?>&&author=<?= $report['author']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');">Supprimer le commentaire</a>
+                        <a class="btn" href="index.php?action=removeCommentReport&amp;id=<?= $report['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');">Supprimer le commentaire</a>
                         <?php
                         }
                         ?>

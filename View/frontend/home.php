@@ -107,10 +107,10 @@ ob_start(); ?>
         <div class="col-12">
             <div class="journal-txt">
                 <?php foreach($posts as $post) { ?>
-                <h3><a href="index.php?action=post&amp;id=<?= $post['id'] ?>"><?= htmlspecialchars($post['title']) ?></a></h3>
+                <h3><a href="index.php?action=post&amp;id=<?= $post['id'] ?>"><?= ($post['title']) ?></a></h3>
                 <em style="color:#000000;">le <?= $post['creation_date_fr'] ?></em></br>
                 <p class="contentPost">
-                    <?= nl2br(htmlspecialchars($post['extract'])) ?><br />
+                    <?= ($post['extract']) ?><br />
                 </p>
                 <?php } 
                 if ($nbPage >= 2) {

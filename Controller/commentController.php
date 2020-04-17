@@ -68,10 +68,10 @@ class commentController {
 }
 
 // pour supprimer un commentaire signalé
-    public function removeCommentReport($commentId, $author) {
+    public function removeCommentReport($commentId) {
         $commentManager = new CommentManager();
 
-        $deletedComment = $commentManager->deleteCommentReport($commentId, $author);
+        $deletedComment = $commentManager->deleteCommentReport($commentId);
 
         Header('Location: index.php?action=displayAdmin&removeComment=success#commentManage');
     }

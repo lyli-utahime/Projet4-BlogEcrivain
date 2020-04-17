@@ -41,13 +41,13 @@ $title = "Billet simple pour l'Alaska";
                                 <!-- Affichage du Billet -->
                                 <div class="content-main single-post padDiv">
                                     <div class="post-meta">
-                                        <h2><?= htmlspecialchars($post['title']) ?></h2>
+                                        <h2><?= ($post['title']) ?></h2>
                                         <ul class="list-unstyled mb-0">
 
                                         <li class="date">date : le <?= $post['creation_date_fr'] ?></li>
                                         </ul>
                                     </div>
-                                    <p class="mb-30"><?= ($post['content']) ?></p>
+                                    <p class="mb-30"><?= strip_tags($post['content']) ?></p>
                                 </div>
                             </div>
                         </div>
@@ -74,9 +74,9 @@ $title = "Billet simple pour l'Alaska";
 
                                             <div class="entry-comments-item">
                                                 <div class="entry-comments-body">
-                                                    <h4 class="entry-comments-author"><?= htmlspecialchars($comment['author']) ?></h4>
+                                                    <h4 class="entry-comments-author"><?= ($comment['author']) ?></h4>
                                                     <span><a href="#"><?= $comment['comment_date_fr'] ?></a></span>
-                                                    <p class="contentPost"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+                                                    <p class="contentPost"><?= ($comment['comment']) ?></p>
                                                 </div>
                                                 <a href="index.php?action=postReport&amp;id=<?= $post['id'] ?>&amp;comment_id=<?= $comment['id'] ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?'));"><i class="fas fa-exclamation-triangle"></i> Signaler</a></p>
                                             </div>

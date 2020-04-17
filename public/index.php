@@ -23,11 +23,11 @@ $getClean = filter_var_array($_GET, $argsGet);
 
 // Filtres pour les $_POST
 $argsPost = array(
-    "title" => FILTER_SANITIZE_URL,
+    "title" => FILTER_SANITIZE_STRING,
     "extract" => FILTER_SANITIZE_SPECIAL_CHARS,
     "content" => FILTER_SANITIZE_SPECIAL_CHARS,
     "author" => FILTER_SANITIZE_STRING,
-    "comment" => FILTER_SANITIZE_STRING,
+    "comment" => FILTER_SANITIZE_SPECIAL_CHARS,
 );
 $postClean = filter_var_array($_POST, $argsPost);
 
@@ -127,10 +127,10 @@ try {
             $commentController->displayRemoveComment();
 // supprimer un commentaire
         } elseif ($getClean['action'] === 'removeComment') {
-            $commentController->removeComment($getClean['comment_id']);
+            $commentController->removeComment($getClean['id']);
 // supprimer un commentaire signalé
         } elseif ($getClean['action'] === 'removeCommentReport') {
-            $commentController->removeCommentReport($getClean['comment_id'], $getClean['author']);
+            $commentController->removeCommentReport($getClean['id']);
         }
     } else {
         $frontend->listPosts();
