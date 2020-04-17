@@ -1,4 +1,9 @@
-<?php $title = "Connexion"; ?>
+<?php 
+
+$title = "Connexion"; ?>
+
+<?php ob_start(); ?>
+
 <!-- start section navbar -->
 <nav id="main-nav">
     <div class="row">
@@ -20,9 +25,6 @@
 </nav>
 <!-- End section navbar -->
 
-<?php ob_start(); ?>
-
-
 <section class="paddsection">
     <div class="container">
         <div class="section-title text-center">
@@ -37,8 +39,8 @@
                     if (isset($_GET['account-status']) &&  $_GET['account-status'] == 'unsuccess-login') {
                     echo '<p>Mauvais identifiant ou mot de passe !<p>';
                     }
-
                     ?>
+
                     <div class="form">
                         <form action="index.php?action=loginAdmin" method="post">
                         <div class="col-lg-6">
@@ -63,8 +65,6 @@
         </div>
     </div>
 </section>
-
-
 
 <?php $content = ob_get_clean(); ?>
 

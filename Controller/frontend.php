@@ -39,10 +39,8 @@ class Frontend {
         $postManager = new PostManager();
         $commentManager = new CommentManager();
 
-        $postId = $_GET['id'];
-
-        $post = $postManager->getPost($postId);
-        $comments = $commentManager->getComments($postId);
+        $post = $postManager->getPost($_GET['id']);
+        $comments = $commentManager->getComments($_GET['id']);
 
         require(__DIR__ . '/../View/frontend/postView.php');
     }

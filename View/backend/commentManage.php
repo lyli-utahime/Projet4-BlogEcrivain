@@ -37,27 +37,28 @@
                             <!-- Affichage des commentaires -->
                             <div class="entry-comments" id="comments">
                                 <h3 class="mb-30">Commentaires</h6>
-                                <ul class="entry-comments-list list-unstyled">
+                                <div class="entry-comments-list list-unstyled">
+
+                                    <!-- Messages d'erreurs -->
                                     <?php
                                     if (isset($_GET['removeComment']) && $_GET['removeComment'] == 'success') {
                                         echo '<p id="success">Le commentaire a bien été supprimé.</p>';
                                     }
+
                                     while ($comment = $comments->fetch())
                                     { ?>
-                                    <li>
-                                        <div class="entry-comments-item">
-                                            <div class="entry-comments-body">
-                                                <h4 class="entry-comments-author"><?= htmlspecialchars($comment['author']) ?></h4>
-                                                <span><a href="#"><?= $comment['comment_date_fr'] ?></a></span>
-                                                <p class="contentPost"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-                                            </div>
-
-                                            <a class="btn" href="index.php?action=removeComment&amp;id=<?= $post['id']?>&amp;comment_id=<?= $comment['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');"">Supprimer le commentaire</a>
+                                    <div class="entry-comments-item">
+                                        <div class="entry-comments-body">
+                                            <h4 class="entry-comments-author"><?= htmlspecialchars($comment['author']) ?></h4>
+                                            <span><a href="#"><?= $comment['comment_date_fr'] ?></a></span>
+                                            <p class="contentPost"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                                         </div>
-                                    </li>
 
-                                <?php } ?>
-                                </ul>
+                                        <a class="btn" href="index.php?action=removeComment&amp;id=<?= $post['id']?>&amp;comment_id=<?= $comment['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');"">Supprimer le commentaire</a>
+                                    </div>
+
+                                    <?php } ?>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -65,7 +66,6 @@
             </div>
         </div>
 </section>
-
 
 <?php $content = ob_get_clean(); ?>
 

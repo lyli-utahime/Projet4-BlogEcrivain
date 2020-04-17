@@ -28,7 +28,7 @@
     <link href="../public/css/responsive.css" rel="stylesheet">
 
     <!-- Page 404 css -->
-    <link href="../public/css/style.css" rel="stylesheet">
+    <link href="../public/css/erreur404.css" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../public/images/favicon.png">

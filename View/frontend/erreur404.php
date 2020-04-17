@@ -7,9 +7,7 @@ ob_start(); ?>
 <title>Erreur</title>
 
 <!-- start section erreur404 -->
-<section class="paddsection">
-    
-<section id="notfound">
+<section id="paddsection">
     <div class="container text-center">
         <div class="section-title text-center">
             <div class="row">

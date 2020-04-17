@@ -20,7 +20,11 @@ class PostManager extends Manager {
         $req = $bdd->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
 
-        return $req->fetch();
+        if ($post = $req->fetch()) {
+            return $post;
+        } else {
+            header('Location: index.php?action=listPosts&erreur=null#posts');
+        }
     }
 
     // créer un billet

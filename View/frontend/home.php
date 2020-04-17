@@ -5,16 +5,6 @@ $title = "Billet simple pour l'Alaska";
 
 ob_start(); ?>
 
-<?php
-if (isset($_GET['account-status']) && $_GET['account-status'] == 'account-successfully-created') {
-    echo '<p id="success">Votre compte a bien été créé. <a href="index.php?action=login">Se connecter</a></p>';
-}
-
-if (isset($_GET['logout']) && $_GET['logout'] == 'success') {
-    echo '<p id="success">Vous êtes bien deconnecté.</p>';
-}
-?>
-
 
 <!-- start section navbar -->
 <nav id="main-nav">
@@ -108,6 +98,11 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'success') {
 </section>
 <section id="posts">
     <div class="container">
+    <?php
+    if (isset($_GET['erreur']) && $_GET['erreur'] == 'null') {
+        echo '<p>Ce billet n\'éxiste pas.</p>';
+    }
+    ?>
         <!-- Liste des derniers posts -->
         <div class="col-12">
             <div class="journal-txt">

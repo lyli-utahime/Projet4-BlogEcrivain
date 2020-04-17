@@ -16,4 +16,3 @@ RewriteRule connexion /index.php?action=displayLoginAdmin [L]
 RewriteRule administration /index.php?action=displayLoginAdmin&account-status=unsuccess-login [L]
 RewriteRule post=^[0-9]*$ /index.php?action=post&id=^[0-9]*$ [L]
 RewriteRule post&id=^[0-9]*$&addComment=success#comments /index.php?action=post&id=^[0-9]*$&addComment=success#comments [L]
-

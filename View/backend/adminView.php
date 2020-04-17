@@ -1,3 +1,9 @@
+<?php 
+
+$title = "Panneau d'administration"; ?>
+
+<?php ob_start(); ?>
+
 <!-- start section navbar -->
 <nav id="main-nav">
     <div class="row">
@@ -18,12 +24,6 @@
     </div>
 </nav>
 <!-- End section navbar -->
-
-<?php 
-
-$title = "Panneau d'administration"; ?>
-
-<?php ob_start(); ?>
 
 <section id="paddsection">
     <div class="container">

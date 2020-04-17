@@ -1,3 +1,11 @@
+<?php
+
+ob_start();
+
+$title = "Billet simple pour l'Alaska";
+
+?>
+
 <!-- start section navbar -->
 <nav id="main-nav">
     <div class="row">
@@ -33,9 +41,7 @@
                                 <!-- Affichage du Billet -->
                                 <div class="content-main single-post padDiv">
                                     <div class="post-meta">
-                                        <?php ob_start(); ?>
-                                        
-                                        <h2><?= ($post['title']) ?></h2>
+                                        <h2><?= htmlspecialchars($post['title']) ?></h2>
                                         <ul class="list-unstyled mb-0">
 
                                         <li class="date">date : le <?= $post['creation_date_fr'] ?></li>
@@ -51,19 +57,21 @@
                                 <!-- Affichage des commentaires -->
                                 <div class="entry-comments" id="comments">
                                     <h3 class="mb-30">Commentaires</h6>
-                                    <ul class="entry-comments-list list-unstyled">
+                                    <div class="entry-comments-list list-unstyled">
+
+                                        <!-- Meesages d'erreurs -->
                                         <?php
                                         if (isset($_GET['report']) && $_GET['report'] == 'success') {
-                                            echo '<p id="success">Le commentaire a bien été signalé.</p>';
+                                            echo '<p>Le commentaire a bien été signalé.</p>';
                                         }
 
                                         if (isset($_GET['addComment']) && $_GET['addComment'] == 'success') {
-                                            echo '<p id="success">Le commentaire a bien été ajouté.</p>';
+                                            echo '<p>Le commentaire a bien été ajouté.</p>';
                                         }
 
                                         while ($comment = $comments->fetch())
                                         { ?>
-                                        <li>
+
                                             <div class="entry-comments-item">
                                                 <div class="entry-comments-body">
                                                     <h4 class="entry-comments-author"><?= htmlspecialchars($comment['author']) ?></h4>
@@ -72,10 +80,9 @@
                                                 </div>
                                                 <a href="index.php?action=postReport&amp;id=<?= $post['id'] ?>&amp;comment_id=<?= $comment['id'] ?>" onclick="return(confirm('Etes-vous sûr de vouloir signaler ce commentaire ?'));"><i class="fas fa-exclamation-triangle"></i> Signaler</a></p>
                                             </div>
-                                        </li>
 
-                                    <?php } ?>
-                                    </ul>
+                                        <?php } ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>

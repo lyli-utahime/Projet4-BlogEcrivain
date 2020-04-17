@@ -8,12 +8,6 @@
             <div class="col-md-8 col-md-offset-2">
                 <h1>Modifier un article</h1>
                 <div id="managerBlock">
-                <?php
-                if (isset($_GET['updatePost']) && $_GET['updatePost'] == 'success') {
-                    echo '<p id="success">L\'article a bien été modifié !</p>';
-                }
-
-                ?>
                     <p class="returnLink"><a href="index.php?action=displayAdmin">Retour au panneau d'administration</a></p>
                     <div id="col-lg-6">
                         <form action="index.php?action=submitUpdate&amp;id=<?= $post['id'] ?>" method="post" class="contactForm">
@@ -21,7 +15,7 @@
 
                                 <div class="col-lg-12">
                                     <div class="form-group contact-block1">
-                                    <input type="text" name="title" class="form-control" id="title" required  value="<?= $post['title'];?>" />
+                                    <input type="text" name="title" class="form-control" id="title" required value="<?= $post['title'];?>" />
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -46,7 +40,6 @@
             </div>
         </div>
 </section>
-
 
 <?php $content = ob_get_clean(); ?>
 

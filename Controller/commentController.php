@@ -52,16 +52,14 @@ class commentController {
         $postManager = new PostManager();
         $commentManager = new CommentManager();
 
-        $postId = (int) $_GET['id'];
-
-        $post = $postManager->getPost($postId);
-        $comments = $commentManager->getComments($postId);
+        $post = $postManager->getPost($_GET['id']);
+        $comments = $commentManager->getComments($_GET['id']);
 
         require(__DIR__ . '/../View/backend/commentManage.php');
     }
 
 // pour supprimer un commentaire
-public function removeComment($commentId) {
+    public function removeComment($commentId) {
     $commentManager = new CommentManager();
 
     $deletedComment = $commentManager->deleteComment($commentId);
