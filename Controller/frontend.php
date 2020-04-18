@@ -51,7 +51,7 @@ class Frontend {
     }
 
 // page 404
-    public function erreur404($e) {
-        require(__DIR__ . '/../View/frontend/erreur404.php');
+    public function error404($e) {
+        require(__DIR__ . '/../View/frontend/error404.php');
     }
 }

@@ -8,12 +8,6 @@
             <div class="col-md-8 col-md-offset-2">
                 <h1>Modérer les commentaires</h1>
                 <div id="managerBlock">
-                <?php
-                if (isset($_GET['updatePost']) && $_GET['updatePost'] == 'success') {
-                    echo '<p id="success">L\'article a bien été modifié !</p>';
-                }
-
-                ?>
                     <p class="returnLink"><a href="index.php?action=displayAdmin">Retour au panneau d'administration</a></p>
 
                     <!-- afficahge de l'article correspondand -->
@@ -41,10 +35,6 @@
 
                                     <!-- Messages d'erreurs -->
                                     <?php
-                                    if (isset($_GET['removeComment']) && $_GET['removeComment'] == 'success') {
-                                        echo '<p id="success">Le commentaire a bien été supprimé.</p>';
-                                    }
-
                                     while ($comment = $comments->fetch())
                                     { ?>
                                     <div class="entry-comments-item">
@@ -54,7 +44,7 @@
                                             <p class="contentPost"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                                         </div>
 
-                                        <a class="btn" href="index.php?action=removeComment&amp;id=<?= $post['id']?>&amp;comment_id=<?= $comment['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');"">Supprimer le commentaire</a>
+                                        <a class="btn" href="index.php?action=removeComment&amp;id=<?= $comment['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');"">Supprimer le commentaire</a>
                                     </div>
 
                                     <?php } ?>

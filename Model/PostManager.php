@@ -23,7 +23,7 @@ class PostManager extends Manager {
         if ($post = $req->fetch()) {
             return $post;
         } else {
-            header('Location: index.php?action=listPosts&erreur=null#posts');
+            header('Location: index.php?action=listPosts&error=null#posts');
         }
     }
 

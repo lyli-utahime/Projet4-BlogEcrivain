@@ -24,14 +24,12 @@ class PostController {
 
         $newPost = $postManager->createPost($title, $extract, $content);
 
-        header('Location: index.php?action=displayAdmin&newPost=success');
+        header('Location: index.php?action=displayAdmin&newPost=success#postManage');
     }
 
 // pour modifier un billet
     public function displayUpdate() {
         $postManager = new PostManager();
-
-        $postId = (int) $_GET['id'];
 
         $post = $postManager->getPostUpdate($_GET['id']);
         require(__DIR__ . '/../View/backend/updatePost.php');
@@ -42,7 +40,7 @@ class PostController {
 
         $updated = $postManager->updatePost($title, $extract, $content, $postId);
 
-        header('Location: index.php?action=displayAdmin&submitUpdate=success');
+        header('Location: index.php?action=displayAdmin&submitUpdate=success#postManage');
     }
 
 // pour supprimer un billet

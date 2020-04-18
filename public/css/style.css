@@ -127,6 +127,11 @@ p {
     color: #b8a07c;
 }
 
+.imgResponsive {
+    width: 100%;
+    height: auto;
+}
+
 .padDiv {
     padding: 30px 20px;
 }

@@ -14,13 +14,12 @@ class CommentManager extends Manager {
         return $comments;
     }
 
-// fontion pour poster un commentaire
+// fonction pour poster un commentaire
     public function postComment($postId, $author, $comment) {
         $bdd = $this->dbConnect();
         $comments = $bdd->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
-        $affectedLines = $comments->execute(array($postId, $author, $comment));
 
-        return $affectedLines;
+        return $comments->execute(array($postId, $author, $comment));
     }
 
 // supprimer un commentaire
@@ -34,8 +33,7 @@ class CommentManager extends Manager {
 // supprimer un commentaire signalé
     public function deleteCommentReport($commentId) {
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare("DELETE FROM comments 
-        WHERE id= ?");
+        $req = $bdd->prepare("DELETE FROM comments WHERE id= ?");
 
         return $req->execute(array($commentId));
     }

@@ -37,7 +37,7 @@ $title = "Connexion"; ?>
                 <div class="offset-md-4 col-md-6">
                     <?php
                     if (isset($_GET['account-status']) &&  $_GET['account-status'] == 'unsuccess-login') {
-                    echo '<p>Mauvais identifiant ou mot de passe !<p>';
+                    echo '<p style="color: red">Mauvais identifiant ou mot de passe !<p>';
                     }
                     ?>
 

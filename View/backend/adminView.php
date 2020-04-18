@@ -46,6 +46,14 @@ $title = "Panneau d'administration"; ?>
                     <h2>Gestion des Articles</h2></br>
 
                     <?php
+                    if (isset($_GET['removeComment']) && $_GET['removeComment'] == 'success') {
+                        echo '<p style="color: red">Le commentaire a bien été supprimé.</p>';
+                    }
+
+                    if (isset($_GET['newPost']) && $_GET['newPost'] == 'success') {
+                        echo '<p style="color: red">L\'article a bien été posté.</p>';
+                    }
+
                     foreach($posts as $post) {
                     ?>
 
@@ -90,8 +98,8 @@ $title = "Panneau d'administration"; ?>
                     <h3>Gestion des commentaires signalés</h3></br>
                     
                     <?php
-                    if (isset($_GET['removeComment']) && $_GET['removeComment'] == 'success') {
-                        echo '<p id="success">Le commentaire a bien été supprimé.</p>';
+                    if (isset($_GET['removeCommentReport']) && $_GET['removeCommentReport'] == 'success') {
+                        echo '<p style="color: red">Le commentaire a bien été supprimé.</p>';
                     }
                     foreach ($reports as $report) {
                     ?>

@@ -136,5 +136,5 @@ try {
         $frontend->listPosts();
     }
 } catch(Exception $e) {
-    $frontend->erreur404($e);
+    $frontend->error404($e);
 }

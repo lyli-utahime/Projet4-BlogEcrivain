@@ -60,11 +60,11 @@ class commentController {
 
 // pour supprimer un commentaire
     public function removeComment($commentId) {
-    $commentManager = new CommentManager();
+        $commentManager = new CommentManager();
 
-    $deletedComment = $commentManager->deleteComment($commentId);
+        $deletedComment = $commentManager->deleteComment($commentId);
 
-    Header('Location: index.php?action=displayRemoveComment&id=' . $_GET['id'] . '&removeComment=success#comments');
+        Header('Location: index.php?action=displayAdmin&removeComment=success#postManage');
 }
 
 // pour supprimer un commentaire signalé
@@ -73,6 +73,6 @@ class commentController {
 
         $deletedComment = $commentManager->deleteCommentReport($commentId);
 
-        Header('Location: index.php?action=displayAdmin&removeComment=success#commentManage');
+        Header('Location: index.php?action=displayAdmin&removeCommentReport=success#removeComment');
     }
 }

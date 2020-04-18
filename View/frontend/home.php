@@ -51,7 +51,7 @@ ob_start(); ?>
             <div class="col-lg-4 ">
                 <div class="div-img-bg">
                     <div class="about-img">
-                        <img src="../public/images/me.jpg" class="img-responsive" alt="me">
+                        <img src="../public/images/me.jpg" alt="Jean Forteroche">
                     </div>
                 </div>
             </div>
@@ -78,17 +78,17 @@ ob_start(); ?>
                     <!-- Images avant liste des derniers posts -->
                     <div class="col-lg-4 col-md-6">
                         <div class="journal-info">
-                            <img src="../public/images/blog-post-1.jpg" class="img-responsive" alt="img">
+                            <img src="../public/images/blog-post-1.jpg" alt="Billets pour l'Alaska">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="journal-info">
-                            <img src="../public/images/blog-post-2.jpg" class="img-responsive" alt="img">
+                            <img src="../public/images/blog-post-2.jpg" alt="Billets pour l'Alaska">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="journal-info">
-                            <img src="../public/images/blog-post-3.jpg" class="img-responsive" alt="img">
+                            <img src="../public/images/blog-post-3.jpg" alt="Billets pour l'Alaska">
                         </div>
                     </div>
                 </div>
@@ -99,8 +99,8 @@ ob_start(); ?>
 <section id="posts">
     <div class="container">
     <?php
-    if (isset($_GET['erreur']) && $_GET['erreur'] == 'null') {
-        echo '<p>Ce billet n\'éxiste pas.</p>';
+    if (isset($_GET['error']) && $_GET['error'] == 'null') {
+        echo '<p style="color: red">Ce billet n\'éxiste pas.</p>';
     }
     ?>
         <!-- Liste des derniers posts -->
