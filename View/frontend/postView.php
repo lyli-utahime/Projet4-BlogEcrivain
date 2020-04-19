@@ -35,7 +35,7 @@ $title = "Billet simple pour l'Alaska";
             <div class="col-md-8 col-md-offset-2">
                 <div class="container-main single-main">
                     <div class="block-main mb-30">
-                        <img src="../public/images/blog-post-big.jpg" class="imgResponsive" alt="Billets pour l'Alaska">
+                        <img src="../../images/blog-post-big.jpg" class="imgResponsive" alt="Billets pour l'Alaska">
 
                         <!-- Affichage du Billet -->
                         <div class="content-main single-post padDiv">
@@ -59,7 +59,7 @@ $title = "Billet simple pour l'Alaska";
                                 <!-- Meesages d'erreurs -->
                                 <?php
                                 if (isset($_GET['report']) && $_GET['report'] == 'success') {
-                                    echo '<p style="color: red"">Le commentaire a bien été signalé.</p>';
+                                    echo '<p style="color: red">Le commentaire a bien été signalé.</p>';
                                 }
 
                                 if (isset($_GET['addComment']) && $_GET['addComment'] == 'success') {

@@ -59,7 +59,7 @@ $title = "Panneau d'administration"; ?>
 
                     <div class="block-main mb-30">
                         <div class="postTitle">
-                                <h3 style="color:#000;"><?= $post['title']; ?></h3>
+                            <h3 style="color:#000;"><?= $post['title']; ?></h3>
                         </div>
                         <div class="contentPost">
                             <em style="color:#000000;">le <?= $post['creation_date_fr'] ?></em>

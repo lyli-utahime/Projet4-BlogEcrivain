@@ -14,24 +14,24 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
-    <link href="../public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
-    <link href="../public/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="../public/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <link href="../public/lib/hover/hover.min.css" rel="stylesheet">
+    <link href="../../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="../../lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="../../lib/hover/hover.min.css" rel="stylesheet">
 
     <!-- Main Stylesheet File -->
-    <link href="../public/css/style.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
 
     <!-- Responsive css -->
-    <link href="../public/css/responsive.css" rel="stylesheet">
+    <link href="../../css/responsive.css" rel="stylesheet">
 
     <!-- Page 404 css -->
-    <link href="../public/css/erreur404.css" rel="stylesheet">
+    <link href="../../css/erreur404.css" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../public/images/favicon.png">
+    <link rel="shortcut icon" href="../../images/favicon.png">
 
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
@@ -99,15 +99,15 @@
     <!-- End section footer -->
 
     <!-- JavaScript Libraries -->
-    <script src="../public/lib/jquery/jquery.min.js"></script>
-    <script src="../public/lib/jquery/jquery-migrate.min.js"></script>
-    <script src="../public/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../public/lib/typed/typed.js"></script>
-    <script src="../public/lib/magnific-popup/magnific-popup.min.js"></script>
-    <script src="../public/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/jquery/jquery-migrate.min.js"></script>
+    <script src="../../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../lib/typed/typed.js"></script>
+    <script src="../../lib/magnific-popup/magnific-popup.min.js"></script>
+    <script src="../../lib/isotope/isotope.pkgd.min.js"></script>
 
     <!-- Template Main Javascript File -->
-    <script src="../public/js/main.js"></script>
+    <script src="../../js/main.js"></script>
 
 </body>
 

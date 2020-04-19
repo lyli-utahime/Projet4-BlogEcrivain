@@ -1,18 +1,2 @@
-# Créer sur Online-Free-Tools.com, le 14/04/2020
-
-RewriteEngine on
-
-# Masquer le htaccess
-<Files .htaccess>
-    order allow,deny
-    deny from all
-</Files>
-
-# Error Document
-ErrorDocument 404 /../View/frontend/erreur404.php
-
-# URL rewriting
-RewriteRule connexion /index.php?action=displayLoginAdmin [L]
-RewriteRule administration /index.php?action=displayLoginAdmin&account-status=unsuccess-login [L]
-RewriteRule post=^[0-9]*$ /index.php?action=post&id=^[0-9]*$ [L]
-RewriteRule post&id=^[0-9]*$&addComment=success#comments /index.php?action=post&id=^[0-9]*$&addComment=success#comments [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]

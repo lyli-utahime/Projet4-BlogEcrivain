@@ -51,7 +51,7 @@ ob_start(); ?>
             <div class="col-lg-4 ">
                 <div class="div-img-bg">
                     <div class="about-img">
-                        <img src="../public/images/me.jpg" alt="Jean Forteroche">
+                        <img src="../../images/me.jpg" alt="Jean Forteroche">
                     </div>
                 </div>
             </div>
@@ -78,17 +78,17 @@ ob_start(); ?>
                     <!-- Images avant liste des derniers posts -->
                     <div class="col-lg-4 col-md-6">
                         <div class="journal-info">
-                            <img src="../public/images/blog-post-1.jpg" alt="Billets pour l'Alaska">
+                            <img src="../../images/blog-post-1.jpg" alt="Billets pour l'Alaska">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="journal-info">
-                            <img src="../public/images/blog-post-2.jpg" alt="Billets pour l'Alaska">
+                            <img src="../../images/blog-post-2.jpg" alt="Billets pour l'Alaska">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="journal-info">
-                            <img src="../public/images/blog-post-3.jpg" alt="Billets pour l'Alaska">
+                            <img src="../../images/blog-post-3.jpg" alt="Billets pour l'Alaska">
                         </div>
                     </div>
                 </div>
