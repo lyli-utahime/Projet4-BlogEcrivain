@@ -22,7 +22,7 @@
                             <li class="date">date : le <?= $post['creation_date_fr'] ?></li>
                             </ul>
                         </div>
-                        <p class="mb-30"><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+                        <p class="mb-30"><?= html_entity_decode($post['content']) ?></p>
                     </div>
                 </div>
                 <div class="col-md-12">

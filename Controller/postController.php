@@ -46,9 +46,14 @@ class PostController {
 // pour supprimer un billet
     public function removePost($postId) {
         $postManager = new PostManager();
+        $commentManager= new CommentManager();
 
         $deletedPost = $postManager->deletePost($postId);
 
-        header('Location: index.php?action=displayAdmin');
+         if ($deleteChapter === false || $deleteComments === false) {
+            throw new Exception('Impossible de supprimer ce chapitre.');
+        } else {
+            header('Location: index.php?action=displayAdmin');
+        }
     }
 }

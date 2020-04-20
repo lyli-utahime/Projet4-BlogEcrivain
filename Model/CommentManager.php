@@ -17,7 +17,7 @@ class CommentManager extends Manager {
 // fonction pour poster un commentaire
     public function postComment($postId, $author, $comment) {
         $bdd = $this->dbConnect();
-        $comments = $bdd->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
+        $comments = $bdd->prepare('INSERT INTO comments(id, post_id, author, comment, comment_date, report) VALUES(?, ?, ?, ?, NOW(), 0)');
 
         return $comments->execute(array($postId, $author, $comment));
     }
@@ -36,5 +36,13 @@ class CommentManager extends Manager {
         $req = $bdd->prepare("DELETE FROM comments WHERE id= ?");
 
         return $req->execute(array($commentId));
+    }
+    
+// Suppression d'un commentaire si le billet est supprimé
+    public function deleteComments($postId) {
+        $bdd = $this->dbConnect();
+        $req = $this->db->prepare('DELETE FROM comments WHERE post_id = ?');
+
+        return $req->execute(array($postId));
     }
 }
