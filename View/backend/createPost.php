@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group contact-block1">
-                                    <textarea name="extract" class="form-control" id="extract" placeholder="EXTRAIT DE L'ARTICLE" style="height: 100px;"required ></textarea>
+                                    <textarea name="extract" class="form-control" id="extract" placeholder="EXTRAIT DE L'ARTICLE" style="height: 100px;" required ></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -35,7 +35,6 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <input type="submit" class="btn" value="Poster l'article" style="width: 100%;" />
-                                    </div>
                                 </div>
 
                             </div>
