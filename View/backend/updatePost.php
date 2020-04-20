@@ -30,7 +30,6 @@
                             </div>
                             <div class="col-lg-12">
                                 <input type="submit" name="submit" class="btn" value="Modifier l'article" style="width: 100%;" />
-                                </div>
                             </div>
 
                         </div>
