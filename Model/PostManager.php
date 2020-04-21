@@ -28,12 +28,12 @@ class PostManager extends Manager {
     }
 
     // créer un billet
-        public function createPost($title, $extract, $content) {
-            $bdd = $this->dbConnect();
-            $req = $bdd->prepare('INSERT INTO posts(title, extract, content, creation_date) VALUES (?, ?, ?, NOW())');
+    public function createPost($title, $extract, $content) {
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('INSERT INTO posts(title, extract, content, creation_date) VALUES (?, ?, ?, NOW())');
 
-            return $req->execute(array($title, $extract, $content));
-        }
+        return $req->execute(array($title, $extract, $content));
+    }
 
     // page : modifier un billet, afficher le billet
     function getPostUpdate($postId) {
