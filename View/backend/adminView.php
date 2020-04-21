@@ -54,6 +54,10 @@ $title = "Panneau d'administration"; ?>
                         echo '<p style="color: red">L\'article a bien été posté.</p>';
                     }
 
+                    if (isset($_GET['submitUpdate']) && $_GET['submitUpdate'] == 'success') {
+                        echo '<p style="color: red">L\'article a bien été modifé.</p>';
+                    }
+                    
                     foreach($posts as $post) {
                     ?>
 

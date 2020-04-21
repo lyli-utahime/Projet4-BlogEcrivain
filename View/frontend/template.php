@@ -5,6 +5,9 @@
     <!-- meta -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <!-- sitemap -->
+    <meta name="google-site-verification" content="Y8S3DFj35BjJGSLN0-n8flU4xq12-MzfcvQoUxxKw88" />
 
     <title>Billet simple pour l'alaska</title>
     <meta content="" name="keywords">

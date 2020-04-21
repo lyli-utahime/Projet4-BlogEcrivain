@@ -17,9 +17,9 @@ class CommentManager extends Manager {
 // fonction pour poster un commentaire
     public function postComment($postId, $author, $comment) {
         $bdd = $this->dbConnect();
-        $comments = $bdd->prepare('INSERT INTO comments(id, post_id, author, comment, comment_date, report) VALUES(?, ?, ?, ?, NOW(), 0)');
+        $req = $bdd->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES( ?, ?, ?, NOW())');
 
-        return $comments->execute(array($postId, $author, $comment));
+        return $req->execute(array($postId, $author, $comment));
     }
 
 // supprimer un commentaire
