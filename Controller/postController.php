@@ -53,7 +53,7 @@ class PostController {
          if ($deleteChapter === false || $deleteComments === false) {
             throw new Exception('Impossible de supprimer ce chapitre.');
         } else {
-            header('Location: index.php?action=displayAdmin');
+            header('Location: index.php?action=displayAdmin&removePost=success#postManage');
         }
     }
 }

@@ -131,6 +131,9 @@ try {
 // supprimer un commentaire signalé
         } elseif ($getClean['action'] === 'removeCommentReport') {
             $commentController->removeCommentReport($getClean['id']);
+// ignorer un commentaire signalé
+        } elseif ($getClean['action'] === 'ignoreCommentReport') {
+            $commentController->ignoreCommentReport($getClean['id']);
         }
     } else {
         $frontend->listPosts();

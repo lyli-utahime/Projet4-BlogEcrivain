@@ -75,4 +75,13 @@ class commentController {
 
         Header('Location: index.php?action=displayAdmin&removeCommentReport=success#removeComment');
     }
+
+// pour ignorer un commentaire signalé
+    public function ignoreCommentReport($commentId) {
+        $reportManager = new ReportManager();
+
+        $ignoreComment = $reportManager->ignoreComment($commentId);
+
+        Header('Location: index.php?action=displayAdmin&ignoreCommentReport=success#removeComment');
+    }
 }

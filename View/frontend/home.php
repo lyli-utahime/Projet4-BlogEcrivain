@@ -21,7 +21,6 @@ ob_start(); ?>
                 <li><a href="#header" class="smoothScroll">Accueil</a></li>
                 <li><a href="#about" class="smoothScroll">A propos</a></li>
                 <li><a href="#journal" class="smoothScroll">Journal</a></li>
-                <li><a href="#contact" class="smoothScroll">Contact</a></li>
                 <li><a href="index.php?action=displayLoginAdmin" class="smoothScroll">Administration</a></li>
             </ul>
 

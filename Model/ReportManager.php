@@ -6,7 +6,7 @@ require_once("Manager.php");
 
 class ReportManager extends Manager{
 
-    // ajout de l'id du commentaire signalé dans la base de donnée "reports"
+    //  modification de la "report" de 0 à 1 pour signaler un commentaire
     public function postReports($commentId) {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare("UPDATE comments SET report = '1' WHERE id =?");
@@ -24,5 +24,13 @@ class ReportManager extends Manager{
         $req->execute(array());
         
         return $req->fetchAll();
+    }
+    
+    // modification de la "report" de 1 à 0 pour ignorer un commentaire
+    public function ignoreComment($commentId) {
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare("UPDATE comments SET report = '0' WHERE id =?");
+
+        return $req->execute(array($commentId));
     }
 }

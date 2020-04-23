@@ -58,6 +58,10 @@ $title = "Panneau d'administration"; ?>
                         echo '<p style="color: red">L\'article a bien été modifé.</p>';
                     }
                     
+                    if (isset($_GET['removePost']) && $_GET['removePost'] == 'success') {
+                        echo '<p style="color: red">L\'article a bien été supprimé.</p>';
+                    }
+                    
                     foreach($posts as $post) {
                     ?>
 
@@ -105,7 +109,17 @@ $title = "Panneau d'administration"; ?>
                     if (isset($_GET['removeCommentReport']) && $_GET['removeCommentReport'] == 'success') {
                         echo '<p style="color: red">Le commentaire a bien été supprimé.</p>';
                     }
+                        
+                    if (isset($_GET['ignoreCommentReport']) && $_GET['ignoreCommentReport'] == 'success') {
+                        echo '<p style="color: red">Le commentaire n\'est plus signalé.</p>';
+                    }
+                    
+                    if (isset($_GET['displayReportsComments']) && $_GET['displayReportsComments'] == 'success') {
+                        echo '<p style="color: red">Aucun commentaire signalé.</p>';
+                    }
+                    
                     foreach ($reports as $report) {
+                    
                     ?>
 
                     <div class="block-main mb-30">
@@ -115,6 +129,7 @@ $title = "Panneau d'administration"; ?>
                             <p style="color: #000;"><?= $report['comment']; ?></p>
                         </div>
                         <a class="btn" href="index.php?action=removeCommentReport&amp;id=<?= $report['id']; ?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ce commentaire ?');">Supprimer le commentaire</a>
+                        <a class="btn" href="index.php?action=ignoreCommentReport&id=<?= $report['id'] ?>" onclick="return confirm('Etes vous sûr de vouloir ignorer ce commentaire ?');">Retirer de la liste</a>
                         <?php
                         }
                         ?>
