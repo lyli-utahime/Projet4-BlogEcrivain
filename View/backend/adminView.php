@@ -114,10 +114,6 @@ $title = "Panneau d'administration"; ?>
                         echo '<p style="color: red">Le commentaire n\'est plus signalé.</p>';
                     }
                     
-                    if (isset($_GET['displayReportsComments']) && $_GET['displayReportsComments'] == 'success') {
-                        echo '<p style="color: red">Aucun commentaire signalé.</p>';
-                    }
-                    
                     foreach ($reports as $report) {
                     
                     ?>
